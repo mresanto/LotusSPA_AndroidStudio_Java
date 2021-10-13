@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Lotus_SPA</string>
+    <string name="textview">TextView</string>
+    <string name="login">Login</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="recuperar_senha">Recuperar Senha</string>
+    <string name="make_login">Fazer Login</string>
+    <string name="create_an_account">Criar Conta</string>
+    <string name="registration">Cadastro</string>
+    <string name="create_my_account">Criar minha conta</string>
+    <string name="full_name">Nome Completo</string>
+    <string name="cpf">CPF</string>
+    <string name="register">Cadastrar</string>
+    <string name="home">Home</string>
+    <string name="make_your_reservation">Faça sua reserva</string>
+    <string name="our_packages">Nossos pacotes</string>
+    <string name="our_products">Nossos produtos</string>
+    <string name="meet_uss">Conheça-nos</string>
+    <string name="any_opinions">Algumas Opiniões</string>
+    <string name="settings">Configuração</string>
+    <string name="sex">Gênero</string>
+    <string name="masculine">Masculino</string>
+    <string name="feminine">Feminino</string>
+    <string name="telephone">Telefone</string>
+    <string name="birthdate">Data de Nascimento</string>
+</resources>
