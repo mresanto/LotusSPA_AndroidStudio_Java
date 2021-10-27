@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="0"
-        android:title="@string/settings"
+        android:title="@string/settings_account"
         app:showAsAction="never" />
     <item android:title="@string/home"
         android:id="@+id/home_menu"
@@ -25,9 +26,5 @@
     <item android:title="@string/meet_uss"
         android:id="@+id/meet_uss_menu"
         android:orderInCategory="5"
-        app:showAsAction="never"/>
-    <item android:title="@string/any_opinions"
-        android:id="@+id/any_opinions_menu"
-        android:orderInCategory="6"
         app:showAsAction="never"/>
 </menu>

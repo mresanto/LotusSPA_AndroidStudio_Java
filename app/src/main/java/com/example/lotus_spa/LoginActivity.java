@@ -16,6 +16,7 @@ import com.example.lotus_spa.Class.Feed;
 import com.example.lotus_spa.Class.Customer;
 import com.example.lotus_spa.Interface.ApiCustomer;
 import com.example.lotus_spa.Json.JsonCostumer;
+import com.example.lotus_spa.Utilits.ActionDB.ActionCustomer;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+       if(VerificarLogin()){
+           Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+           startActivity(intent);
+           finish();
+       }
+
         btnLog = (Button) findViewById(R.id.btnLog);
         txtEmail = (EditText) findViewById(R.id.edEmail);
         txtPassword = (EditText) findViewById(R.id.edPassword);
@@ -63,13 +70,37 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<Feed> call, Response<Feed> response) {
                     Log.d(TAG, "onResponse: Server Response" + response.toString());
                     Log.d(TAG, "onResponse: received information" + response.body().toString());
+                    if(response.body().getResponse().getQuantidade().equals("1")) {
+                        ArrayList<Customer> customersList = response.body().getResponse().getCustomer();
 
-                    ArrayList<Customer> customersList = response.body().getResponse().getCustomer();
-                    for( int i = 0; i < customersList.size(); i++){
-                        Log.d("LoginActivity", "onResponse \n" +
-                                "customercode : " + customersList.get(i).getCustcode() + "\n" +
-                                "customername : " + customersList.get(i).getCustname());
+                        String email_v = customersList.get(0).getCustemail();
+                        String password_v = customersList.get(0).getCustpassword();
+
+                        if (email_v.length() == email.length() && password_v.length() == password.length()) {
+
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                // Apply activity transition
+                                SalvarCustomer(customersList.get(0));
+                                finish();
+                            } else {
+                                Intent intent = new Intent(LoginActivity.this, RegistrationActivity.class);
+                                startActivity(intent);
+                                // Swap without transition
+                            }
+                        }
                     }
+                    else{
+                        Toast.makeText(LoginActivity.this, "Login não encontrado", Toast.LENGTH_SHORT).show();
+                    }
+
+                    //for( int i = 0; i < customersList.size(); i++){
+                    //    Log.d("LoginActivity", "onResponse \n" +
+                    //            "customercode : " + customersList.get(i).getCustcode() + "\n" +
+                    //            "customername : " + customersList.get(i).getCustname());
+                    //}
                 }
 
                 @Override
@@ -98,5 +129,19 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void SalvarCustomer(Customer customer){
+        ActionCustomer salvar = new ActionCustomer(this);
+        if(salvar.AdicionarCustomer(customer))
+        Log.i("INFO Salvar", "Customer criado");
+        else
+            Log.i("INFO Salvar", "Customer não criado");
+
+    }
+
+    public boolean VerificarLogin(){
+        ActionCustomer verificar = new ActionCustomer(this);
+        return verificar.VerificarLogin();
     }
 }
