@@ -1,4 +1,4 @@
-package com.example.lotus_spa;
+package com.example.lotus_spa.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -23,12 +19,12 @@ import com.example.lotus_spa.Class.Customer;
 import com.example.lotus_spa.Class.Feed;
 import com.example.lotus_spa.Class.Resultado;
 import com.example.lotus_spa.Interface.ApiCustomer;
+import com.example.lotus_spa.R;
 import com.santalu.maskara.widget.MaskEditText;
 
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import retrofit2.Call;

@@ -1,21 +1,20 @@
-package com.example.lotus_spa;
+package com.example.lotus_spa.Activitys;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.lotus_spa.Class.Feed;
 import com.example.lotus_spa.Class.Customer;
 import com.example.lotus_spa.Interface.ApiCustomer;
-import com.example.lotus_spa.Json.JsonCostumer;
+import com.example.lotus_spa.R;
 import com.example.lotus_spa.Utilits.ActionDB.ActionCustomer;
 
 import java.util.ArrayList;
@@ -62,9 +61,7 @@ public class LoginActivity extends AppCompatActivity {
 
             String email = txtEmail.getText().toString();
             String password = txtPassword.getText().toString();
-            Log.d(TAG, password);
             call = apiCustomer.getDataEmail(email, password);
-
             call.enqueue(new Callback<Feed>() {
                 @Override
                 public void onResponse(Call<Feed> call, Response<Feed> response) {
@@ -93,7 +90,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                     else{
-                        Toast.makeText(LoginActivity.this, "Login não encontrado", Toast.LENGTH_SHORT).show();
+                        txtEmail.setError("Email e Senha não encontrados");
+                        txtPassword.setError("Email e Senha não encontrados");
                     }
 
                     //for( int i = 0; i < customersList.size(); i++){
@@ -106,7 +104,10 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(Call<Feed> call, Throwable t) {
                     Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
-                    Toast.makeText(LoginActivity.this, "Infelizmete algo deu errado", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder missingserver = new AlertDialog.Builder(LoginActivity.this);
+                    missingserver.setTitle("Server not found!");
+                    missingserver.setMessage("Servidores Offline, por favor tente novamente mais tarde");
+                    missingserver.create().show();
                 }
             });
         });

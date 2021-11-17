@@ -1,18 +1,14 @@
-package com.example.lotus_spa;
+package com.example.lotus_spa.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.lotus_spa.R;
 import com.example.lotus_spa.Utilits.ActionDB.ActionCustomer;
-
-import java.lang.annotation.Repeatable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition( R.anim.slide_in_left,R.anim.slide_out_right);
                 finish();
             }
+        }
+        if(id == R.id.our_products_menu){
+            Intent intent = new Intent(MainActivity.this, PurshaseActivity.class);
+            startActivity(intent);
+            overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left);
         }
         return super.onOptionsItemSelected(item);
     }

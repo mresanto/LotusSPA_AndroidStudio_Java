@@ -24,10 +24,12 @@
     <string name="feminine">Feminino</string>
     <string name="telephone">Telefone</string>
     <string name="birthdate">Data de Nascimento</string>
-    <string name="first_scheduling">O primeiro<br/> agendamento tem<br/> 25% de desconto :)</string>
+    <string name="first_scheduling">O primeiro<br /> agendamento tem<br /> 25% de desconto :)</string>
     <string name="schedule_a_time">Agende um horário</string>
     <string name="mytelephone">Telefone (12) 3456-7890</string>
     <string name="myemail">E-mail lotusspa@gmail.com</string>
     <string name="online_reservation">Reservas On-line</string>
     <string name="myaddress">Endereço Rua Augusta, 929 - São Paulo, SP</string>
+    <string name="product">Product</string>
+    <string name="todo">TODO</string>
 </resources>
