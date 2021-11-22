@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-public class Response {
+public class Value {
 
-    @SerializedName("quantidade")
+    @SerializedName("Value")
     @Expose
     private String quantidade;
 

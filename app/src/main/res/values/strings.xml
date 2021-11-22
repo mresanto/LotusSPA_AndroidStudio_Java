@@ -32,4 +32,10 @@
     <string name="myaddress">Endereço Rua Augusta, 929 - São Paulo, SP</string>
     <string name="product">Product</string>
     <string name="todo">TODO</string>
+    <string name="cep">Cep</string>
+    <string name="numberaddress">Numero Endereço</string>
+    <string name="logout">Encerrar Sessão</string>
+    <string name="update">Atualizar Dados</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">cancel</string>
 </resources>

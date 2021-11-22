@@ -14,10 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotus_SPA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activitys.LoginActivity"/>
+        <activity android:name=".Activitys.UpdateAccountActivity"></activity>
+        <activity android:name=".Activitys.YourAccountActivity" />
+        <activity android:name=".Activitys.PurshaseActivity" />
         <activity android:name=".Activitys.MainActivity" />
         <activity android:name=".Activitys.RegistrationActivity" />
-        <activity android:name=".Activitys.PurshaseActivity">
+        <activity android:name=".Activitys.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

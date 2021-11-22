@@ -16,7 +16,7 @@ public class   Customer {
     @Expose
     private String custname;
 
-    @SerializedName("custsex")
+    @SerializedName("custgender")
     @Expose
     private String custsex;
 
@@ -24,11 +24,11 @@ public class   Customer {
     @Expose
     private String custcpf;
 
-    @SerializedName("custbirthdate")
+    @SerializedName("custdtnasc")
     @Expose
     private String custbirthdate;
 
-    @SerializedName("custtelephone")
+    @SerializedName("custtel")
     @Expose
     private String custtelephone;
 
@@ -39,6 +39,18 @@ public class   Customer {
     @SerializedName("custpassword")
     @Expose
     private String custpassword;
+
+    @SerializedName("custnumberaddress")
+    @Expose
+    private String custnumberaddress;
+
+    @SerializedName("cep")
+    @Expose
+    private String cep;
+
+    @SerializedName("msg")
+    @Expose
+    private String mensagem;
 
     public int getCustcode() {
         return custcode;
@@ -104,4 +116,27 @@ public class   Customer {
         this.custpassword = custpassword;
     }
 
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
+    public String getCustnumberaddress() {
+        return custnumberaddress;
+    }
+
+    public void setCustnumberaddress(String custnumberaddress) {
+        this.custnumberaddress = custnumberaddress;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 }

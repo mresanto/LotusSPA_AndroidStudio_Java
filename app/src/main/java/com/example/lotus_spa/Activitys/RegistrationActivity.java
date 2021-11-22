@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -37,19 +38,15 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private String finaldate;
 
-    private Button btnCad;
-    private Button btnDate;
-    private EditText CadEmail;
-    private EditText CadPassword;
-    private EditText CadName;
-    private MaskEditText CadCpf;
+    private Button btnCad, btnDate;
+    private EditText CadEmail, CadPassword, CadName;
+    private MaskEditText CadCpf, CadTelephone, CadCep, CadNA;
     private Switch switchsex;
-    private MaskEditText CadTelephone;
     private TextView tvDialog;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
-    private static final String TAG = "RegistrationActivity.this";
-    private static final String BASE_URL = "http://10.0.2.2:3000/";
+    private static final String TAG = "RegistrationActivity";
+    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +67,11 @@ public class RegistrationActivity extends AppCompatActivity {
         CadCpf = (MaskEditText) findViewById(R.id.edCadCpf);
         switchsex = (Switch) findViewById(R.id.switchsex);
         CadTelephone = (MaskEditText) findViewById(R.id.edCadTelephone);
+        CadCep = (MaskEditText) findViewById(R.id.edCadCep);
+        CadNA = (MaskEditText) findViewById(R.id.edCadNumberAddress);
 
         tvDialog = (TextView) findViewById(R.id.tvDate);
+        finaldate = "Select Date";
 
         tvDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,11 +107,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 switchsex.setText("Masculino");
         });
 
-        btnCad = (Button) findViewById(R.id.btnCad);
+        btnCad = findViewById(R.id.btnCad);
         btnCad.setOnClickListener(v -> {
             Customer customer = new Customer();
 
             customer.setCustname(CadName.getText().toString());
+
+            tvDialog.setError(null);
 
             if(switchsex.getText() == "Feminino"){
                 customer.setCustsex("F");
@@ -125,33 +127,45 @@ public class RegistrationActivity extends AppCompatActivity {
             customer.setCusttelephone(CadTelephone.getUnMasked());
             customer.setCustemail(CadEmail.getText().toString());
             customer.setCustpassword(CadPassword.getText().toString());
+            customer.setCustnumberaddress(CadNA.getUnMasked());
+            customer.setCep(CadCep.getUnMasked());
+            Log.e("onResponse", "Test: " + customer.getCusttelephone().length());
 
-            if(Validation(customer) == true) {
 
-                Call<Feed> call2;
+            if(Validation(customer)) {
+
+                Call<List<Customer>> call2;
 
                 String email, cpf;
                 email = customer.getCustemail();
                 cpf = customer.getCustcpf();
                 //call2 = apiCustomer.getValidation(email, cpf);
-                call2 = apiCustomer.getValidation(email, cpf);
-                call2.enqueue(new Callback<Feed>() {
+                call2 = apiCustomer.getValidation(cpf, email, "0");
+                call2.enqueue(new Callback<List<Customer>>() {
                     @Override
-                    public void onResponse(Call<Feed> call, Response<Feed> response) {
-                        List<Resultado> s;
+                    public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+                        String msg;
 
-                        s = response.body().getResultado();
-                        String a = s.get(0).getMensagem();
-                        if(a.length() != 0) {
-                            Toast.makeText(RegistrationActivity.this, s.get(0).getMensagem(), Toast.LENGTH_SHORT).show();
+                        msg = response.body().get(0).getMensagem();
+
+                        Log.e("onResponse", "Test: " + msg);
+                        if(msg.equals("Email e CPF já utilizados")) {
+                            CadEmail.setError("Email já utilizado");
+                            CadCpf.setError("Cpf já utilizado");
                         }
-                        else
-                        CadCostumer(customer);
+                        else if(msg.equals("Email já utilizado"))
+                            CadEmail.setError("Email já utilizado");
+                        else if(msg.equals("CPF já utlizado"))
+                            CadCpf.setError("Cpf já utilizado");
+                        else if(msg.equals("Not Found CPF and Email"))
+                            CadCostumer(customer);
                     }
 
                     @Override
-                    public void onFailure(Call<Feed> call, Throwable t) {
+                    public void onFailure(Call<List<Customer>> call, Throwable t) {
                         Toast.makeText(RegistrationActivity.this, "Cadastro não realizado com sucesso", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+
                     }
                 });
 
@@ -189,7 +203,6 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public void finish() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -210,26 +223,61 @@ public class RegistrationActivity extends AppCompatActivity {
 
         if(customer.getCustemail().length() == 0)
         {
-            Toat("Email não preenchido");
+            CadEmail.setError("Email não preenchido");
             return false;
         }
         else if (isValidEmailId(customer.getCustemail().trim()) != true)
         {
-            Toat("Email não valido");
+            CadEmail.setError("Email não válido");
             return false;
         }
+
         else if(customer.getCustpassword().length() == 0){
-            Toat("Senha não preenchida");
-            return false;
-        }
-        else if(customer.getCustcpf().length() != 11){
-            Toat("Cpf não preenchido corretamente");
+            CadPassword.setError("Senha não preenchida");
             return false;
         }
         else if(customer.getCustname().length() == 0){
-            Toat("Nome não preenchido");
+            CadName.setError("Nome não preenchido");
             return false;
         }
+        else if(customer.getCustcpf().length() != 11){
+            CadCpf.setError("Cpf não preenchido corretamente");
+            return false;
+        }
+        else if(customer.getCep().length() == 0){
+            CadCep.setError("Cep não preenchido");
+            return false;
+        }
+        else if(customer.getCep().length() != 8){
+            CadCep.setError("Cep não preenchido corretamente");
+            return false;
+        }
+        else if(customer.getCustnumberaddress().length() == 0)
+        {
+            CadNA.setError("Numero Endereço não preenchido");
+            return false;
+        }
+        else if(customer.getCustnumberaddress().length() != 2)
+        {
+            CadNA.setError("Numero Endereço não preenchido corretamente");
+            return false;
+        }
+        else if(customer.getCusttelephone().length() == 0)
+        {
+            CadTelephone.setError("Telefone não preenchido");
+            return false;
+        }
+        else if(customer.getCusttelephone().length() != 11)
+        {
+            CadTelephone.setError("Telefone não preenchido corretamente");
+            return false;
+        }
+        else if(customer.getCustbirthdate().equals("Select Date"))
+        {
+            tvDialog.setError("data não preenchida");
+            return false;
+        }
+
         return true;
     }
     private boolean isValidEmailId(String email){

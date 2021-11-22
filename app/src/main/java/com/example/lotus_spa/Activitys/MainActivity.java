@@ -27,13 +27,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if(id == R.id.action_settings){
-            if(DeleteLogin())
-            {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, YourAccountActivity.class);
                 startActivity(intent);
-                overridePendingTransition( R.anim.slide_in_left,R.anim.slide_out_right);
-                finish();
-            }
+                overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left);
         }
         if(id == R.id.our_products_menu){
             Intent intent = new Intent(MainActivity.this, PurshaseActivity.class);
