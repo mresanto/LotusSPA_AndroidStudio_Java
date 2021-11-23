@@ -7,10 +7,6 @@
         android:orderInCategory="0"
         android:title="@string/settings_account"
         app:showAsAction="never" />
-    <item android:title="@string/home"
-        android:id="@+id/home_menu"
-        android:orderInCategory="1"
-        app:showAsAction="never"/>
     <item android:title="@string/make_your_reservation"
         android:id="@+id/make_your_reservation_menu"
         android:orderInCategory="2"

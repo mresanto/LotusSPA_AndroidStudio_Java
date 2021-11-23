@@ -12,39 +12,39 @@ public class   Customer {
     @Expose
     private int custcode;
 
-    @SerializedName("custname")
+    @SerializedName("CustName")
     @Expose
     private String custname;
 
-    @SerializedName("custgender")
+    @SerializedName("CustGender")
     @Expose
     private String custsex;
 
-    @SerializedName("custcpf")
+    @SerializedName("CustCPF")
     @Expose
     private String custcpf;
 
-    @SerializedName("custdtnasc")
+    @SerializedName("CustDtNasc")
     @Expose
     private String custbirthdate;
 
-    @SerializedName("custtel")
+    @SerializedName("CustTel")
     @Expose
     private String custtelephone;
 
-    @SerializedName("custemail")
+    @SerializedName("CustEmail")
     @Expose
     private String custemail;
 
-    @SerializedName("custpassword")
+    @SerializedName("CustPassword")
     @Expose
     private String custpassword;
 
-    @SerializedName("custnumberaddress")
+    @SerializedName("CustNumberAddress")
     @Expose
     private String custnumberaddress;
 
-    @SerializedName("cep")
+    @SerializedName("CEPAddress")
     @Expose
     private String cep;
 

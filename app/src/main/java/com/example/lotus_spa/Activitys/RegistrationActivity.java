@@ -17,8 +17,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lotus_spa.Class.Customer;
-import com.example.lotus_spa.Class.Feed;
-import com.example.lotus_spa.Class.Resultado;
 import com.example.lotus_spa.Interface.ApiCustomer;
 import com.example.lotus_spa.R;
 import com.santalu.maskara.widget.MaskEditText;
@@ -67,8 +65,8 @@ public class RegistrationActivity extends AppCompatActivity {
         CadCpf = (MaskEditText) findViewById(R.id.edCadCpf);
         switchsex = (Switch) findViewById(R.id.switchsex);
         CadTelephone = (MaskEditText) findViewById(R.id.edCadTelephone);
-        CadCep = (MaskEditText) findViewById(R.id.edCadCep);
-        CadNA = (MaskEditText) findViewById(R.id.edCadNumberAddress);
+        CadCep = (MaskEditText) findViewById(R.id.edUpCep);
+        CadNA = (MaskEditText) findViewById(R.id.edUpNumberAddress);
 
         tvDialog = (TextView) findViewById(R.id.tvDate);
         finaldate = "Select Date";

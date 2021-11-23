@@ -160,7 +160,7 @@
             tools:ignore="LabelFor" />
 
         <com.santalu.maskara.widget.MaskEditText
-            android:id="@+id/edCadCep"
+            android:id="@+id/edUpCep"
             android:layout_width="108dp"
             android:layout_height="41dp"
             android:layout_marginStart="32dp"
@@ -181,7 +181,7 @@
             tools:ignore="LabelFor" />
 
         <com.santalu.maskara.widget.MaskEditText
-            android:id="@+id/edCadNumberAddress"
+            android:id="@+id/edUpNumberAddress"
             android:layout_width="54dp"
             android:layout_height="41dp"
             android:layout_marginStart="32dp"

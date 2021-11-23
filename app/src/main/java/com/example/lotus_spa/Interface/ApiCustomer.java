@@ -14,6 +14,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface ApiCustomer {
@@ -30,4 +31,13 @@ public interface ApiCustomer {
     @Headers("Content-Type: application/json")
     @GET("Customer/{cpf}/{email}/{password}")
     Call<List<Customer>> getValidation(@Path("cpf") String cpf, @Path("email") String email, @Path("password") String password);
+
+    @Headers("Content-Type: application/json")
+    @GET("Customer/{email}")
+    Call<List<Customer>> getByEmail(@Path("email") String email);
+
+    @PUT("Customer/")
+    Call<Customer> updateCostumer(@Body Customer customer);
+
+
 }
