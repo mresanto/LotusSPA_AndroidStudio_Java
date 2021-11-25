@@ -9,27 +9,26 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.lotus_spa.Class.Customer;
+import com.example.lotus_spa.Class.OrderItem;
+import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Utilits.DBHelper;
 
-public class ActionCustomer extends DBHelper {
+public class ActionOrderItem extends DBHelper {
 
-    public ActionCustomer(@Nullable Context context){
+    public ActionOrderItem(@Nullable Context context){
         super(context);
     }
 
-    public boolean AdicionarCustomer(Customer customer ){
+    public boolean AddOrderItem(OrderItem orderItem ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("CUSTCODE", customer.getCustcode());
-        cv.put("CUSTNAME", customer.getCustname());
-        cv.put("CUSTSEX", customer.getCustsex());
-        cv.put("CUSTCPF", customer.getCustcpf());
-        cv.put("CUSTBIRTHDATE", customer.getCustbirthdate());
-        cv.put("CUSTTELEPHONE", customer.getCusttelephone());
-        cv.put("CUSTEMAIL", customer.getCustemail());
-        cv.put("CUSTPASSWORD", customer.getCustpassword());
+        cv.put("Id", 0);
+        cv.put("OrdCode", 1);
+        cv.put("ProdBarCode", orderItem.getProdBarCode());
+        cv.put("ItemUnitaryPrice", orderItem.getItemUnitaryPrice());
+        cv.put("ItemAmount", 1);
 
-        long result = db.insert("tbCUSTOMER ",null,cv);
+        long result = db.insert("tbOrderItem ",null,cv);
         db.close();
         if(result == -1)
             return false;
@@ -52,32 +51,30 @@ public class ActionCustomer extends DBHelper {
         }
     }
 
-    public boolean DeleteLogin(){
+    public boolean DeleteOrderItem(){
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "SELECT * FROM tbCustomer";
+        String sql = "SELECT * FROM tbOrderItem";
         Cursor c = db.rawQuery(sql, null);
 
-        Customer customer = new Customer();
+        OrderItem orderItem = new OrderItem();
         try {
             c.moveToFirst();
-            customer.setCustcode(c.getInt(c.getColumnIndex("CUSTCODE")));
+            orderItem.setOrdCode(c.getInt(c.getColumnIndex("OrdCode")));
 
-            Integer i = customer.getCustcode();
+            Integer i = orderItem.getOrdCode();
             try {
                 String[] args = {i.toString()};
                 SQLiteDatabase db2 = getWritableDatabase();
-                db2.delete("tbCUSTOMER", "CUSTCODE=?", args);
+                db2.delete("tbOrderItem", "ID=?", args);
             } catch (Exception e) {
-                Log.i("INFO DELETE", "LOGIN não deletado");
+                Log.i("INFO DELETE", "OrderItem não deletado");
                 return false;
             }
-            Log.i("INFO DELETE", "LOGIN deletado");
+            Log.i("INFO DELETE", "OrderItem deletado");
             return true;
         }
         catch (Exception e){
             return false;
         }
-
     }
-
 }

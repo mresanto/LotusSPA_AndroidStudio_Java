@@ -9,26 +9,17 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.lotus_spa.Class.Feed;
 import com.example.lotus_spa.Class.Customer;
 import com.example.lotus_spa.Interface.ApiCustomer;
 import com.example.lotus_spa.R;
-import com.example.lotus_spa.Utilits.ActionDB.ActionCustomer;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.net.ssl.SSLContext;
-
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

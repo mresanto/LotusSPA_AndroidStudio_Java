@@ -1,36 +1,31 @@
 package com.example.lotus_spa.Class;
 
-import android.media.Image;
-import android.widget.ProgressBar;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.sql.Blob;
-
 public class Product {
 
-    @SerializedName("prodbarcode")
+    @SerializedName("ProdBarCode")
     @Expose
     private int ProdBarCode;
 
-    @SerializedName("prodname")
+    @SerializedName("ProdName")
     @Expose
     private String ProdName;
 
-    @SerializedName("prodprice")
+    @SerializedName("ProdPrice")
     @Expose
-    private int ProdPrice;
+    private String ProdPrice;
 
-    @SerializedName("isdeleted")
+    @SerializedName("IsDeleted")
     @Expose
     private Boolean IsDeleted;
 
-    @SerializedName("catcode")
+    @SerializedName("CatCode")
     @Expose
     private int CatCode;
 
-    @SerializedName("catname")
+    @SerializedName("CatName")
     @Expose
     private String CatName;
 
@@ -40,7 +35,7 @@ public class Product {
 
     }
 
-    public Product(int prodBarCode, String prodName, int prodPrice, Boolean isDeleted, int catCode, String catName, int imageProduct) {
+    public Product(int prodBarCode, String prodName, String prodPrice, Boolean isDeleted, int catCode, String catName, int imageProduct) {
         ProdBarCode = prodBarCode;
         ProdName = prodName;
         ProdPrice = prodPrice;
@@ -66,11 +61,11 @@ public class Product {
         ProdName = prodName;
     }
 
-    public int getProdPrice() {
+    public String getProdPrice() {
         return ProdPrice;
     }
 
-    public void setProdPrice(int prodPrice) {
+    public void setProdPrice(String prodPrice) {
         ProdPrice = prodPrice;
     }
 

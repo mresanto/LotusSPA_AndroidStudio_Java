@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.lotus_spa.R;
-import com.example.lotus_spa.Utilits.ActionDB.ActionCustomer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,13 +36,5 @@ public class MainActivity extends AppCompatActivity {
             overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public Boolean DeleteLogin(){
-        ActionCustomer deletar = new ActionCustomer(this);
-        if(deletar.DeleteLogin())
-            return true;
-        else
-            return false;
     }
 }

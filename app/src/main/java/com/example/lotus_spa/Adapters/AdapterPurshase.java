@@ -28,10 +28,12 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
 
     private Context mContext;
     private List<Product> products;
+    private ItemClickListener mItemListener;
 
-    public AdapterPurshase(Context mContext, List<Product> products) {
+    public AdapterPurshase(Context mContext, List<Product> products, ItemClickListener mItemListener) {
         this.mContext = mContext;
         this.products = products;
+        this.mItemListener = mItemListener;
     }
 
     @NonNull
@@ -49,13 +51,21 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
     public void onBindViewHolder(@NonNull @NotNull AdapterPurshase.MyViewHolder holder, int position) {
 
         holder.nameproduct.setText(products.get(position).getProdName());
-        holder.imageproduct.setImageResource(products.get(position).getImageProduct());
+        //Add image
+        holder.imageproduct.setImageResource(R.drawable.ic_launcher_foreground);
 
+        holder.itemView.setOnClickListener(v -> {
+            mItemListener.onItemClick(products.get(position));
+        });
     }
 
     @Override
     public int getItemCount() {
         return products.size();
+    }
+
+    public interface ItemClickListener{
+        void onItemClick(Product product);
     }
 
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
@@ -71,5 +81,4 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
 
         }
     }
-
 }

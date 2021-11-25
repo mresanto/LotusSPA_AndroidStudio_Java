@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static int versao = 6;
+    private static int versao = 7;
     private static String nome = "Lotus_Spa";
 
     public DBHelper(@Nullable Context context){
@@ -18,15 +18,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String str= "CREATE TABLE tbCUSTOMER(" +
-                " CUSTCODE INTEGER PRIMARY KEY," +
-                " CUSTNAME TEXT," +
-                " CUSTSEX TEXT," +
-                " CUSTCPF TEXT," +
-                " CUSTBIRTHDATE TEXT," +
-                " CUSTTELEPHONE TEXT," +
-                " CUSTEMAIL TEXT," +
-                " CUSTPASSWORD TEXT);";
+        String str= "CREATE TABLE tbOrderItem(" +
+                " ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " OrdCode TEXT," +
+                " ProdBarCode TEXT," +
+                " ItemUnitaryPrice TEXT," +
+                " ItemAmount TEXT);";
         try {
             db.execSQL(str);
             Log.i("INFO DB", "Sucesso ao criar a tabela");
@@ -37,8 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS tbCUSTOMER;");
+        db.execSQL("DROP TABLE IF EXISTS tbOrderItem;");
         onCreate(db);
-        Log.i("INFO DB", "Banco atualizado");
+        Log.i("INFO DB", "Banco Atualizado");
     }
 }
