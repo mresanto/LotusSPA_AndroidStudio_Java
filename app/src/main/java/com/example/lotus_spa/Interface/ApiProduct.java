@@ -18,8 +18,14 @@ public interface ApiProduct {
     Call<List<Product>> getProducts();
 
     @Headers("Content-Type: application/json")
-    @GET("Product/{category}")
+    @GET("Product/category/{category}")
     Call<List<Product>> getProductsCategory(@Path("category") String category);
+
+    @Headers("Content-Type: application/json")
+    @GET("Product/{prodcode}")
+    Call<List<Product>> getDetailsProduct(@Path("prodcode") int procode);
+
+
 
 
 

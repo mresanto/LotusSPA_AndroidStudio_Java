@@ -5,7 +5,7 @@
     android:background="@color/pattern"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.PurshaseActivity">
+    tools:context=".Activitys.PurchaseActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -47,4 +47,5 @@
         app:layout_constraintTop_toBottomOf="@+id/spCategoryProduct" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

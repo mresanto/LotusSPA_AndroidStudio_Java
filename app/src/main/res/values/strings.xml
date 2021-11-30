@@ -13,9 +13,10 @@
     <string name="cpf">CPF</string>
     <string name="register">Cadastrar</string>
     <string name="home">Home</string>
-    <string name="make_your_reservation">Faça sua reserva</string>
-    <string name="our_packages">Nossos pacotes</string>
-    <string name="our_products">Nossos produtos</string>
+    <string name="make_your_reservation">Reserva</string>
+    <string name="our_packages">Pacotes</string>
+    <string name="our_products">Loja</string>
+    <string name="your_products">Seus produtos</string>
     <string name="meet_uss">Conheça-nos</string>
     <string name="any_opinions">Algumas Opiniões</string>
     <string name="settings_account">Sua conta</string>
@@ -38,4 +39,9 @@
     <string name="update">Atualizar Dados</string>
     <string name="ok">Ok</string>
     <string name="cancel">cancel</string>
+    <string name="prodname">Nome</string>
+    <string name="prodprice">Preço</string>
+    <string name="catname">Categoria</string>
+    <string name="amount">Quantidade</string>
+    <string name="add_prod">Adicionar Produto</string>
 </resources>

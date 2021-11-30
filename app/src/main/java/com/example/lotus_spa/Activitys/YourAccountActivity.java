@@ -77,4 +77,5 @@ public class YourAccountActivity extends AppCompatActivity {
             // Swap without transition
         }
     }
+
 }

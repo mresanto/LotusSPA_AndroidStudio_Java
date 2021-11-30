@@ -13,9 +13,11 @@ public class OrderItem {
     @Expose
     private int ProdBarCode;
 
+    private String ProdName;
+
     @SerializedName("ItemUnitaryPrice")
     @Expose
-    private float ItemUnitaryPrice;
+    private String ItemUnitaryPrice;
 
     @SerializedName("ItemAmount")
     @Expose
@@ -24,11 +26,12 @@ public class OrderItem {
     public OrderItem() {
     }
 
-    public OrderItem(int ordCode, int prodBarCode, float itemUnitaryPrice, int itemAmount) {
+    public OrderItem(int ordCode, int prodBarCode, String itemUnitaryPrice, int itemAmount, String prodName) {
         OrdCode = ordCode;
         ProdBarCode = prodBarCode;
         ItemUnitaryPrice = itemUnitaryPrice;
         ItemAmount = itemAmount;
+        ProdName = prodName;
     }
 
     public int getOrdCode() {
@@ -47,11 +50,19 @@ public class OrderItem {
         ProdBarCode = prodBarCode;
     }
 
-    public float getItemUnitaryPrice() {
+    public String getProdName() {
+        return ProdName;
+    }
+
+    public void setProdName(String prodName) {
+        ProdName = prodName;
+    }
+
+    public String getItemUnitaryPrice() {
         return ItemUnitaryPrice;
     }
 
-    public void setItemUnitaryPrice(float itemUnitaryPrice) {
+    public void setItemUnitaryPrice(String itemUnitaryPrice) {
         ItemUnitaryPrice = itemUnitaryPrice;
     }
 

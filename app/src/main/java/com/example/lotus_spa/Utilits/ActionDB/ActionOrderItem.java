@@ -13,6 +13,9 @@ import com.example.lotus_spa.Class.OrderItem;
 import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Utilits.DBHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ActionOrderItem extends DBHelper {
 
     public ActionOrderItem(@Nullable Context context){
@@ -22,9 +25,9 @@ public class ActionOrderItem extends DBHelper {
     public boolean AddOrderItem(OrderItem orderItem ){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put("Id", 0);
         cv.put("OrdCode", 1);
         cv.put("ProdBarCode", orderItem.getProdBarCode());
+        cv.put("ProdName", orderItem.getProdName());
         cv.put("ItemUnitaryPrice", orderItem.getItemUnitaryPrice());
         cv.put("ItemAmount", 1);
 
@@ -36,19 +39,41 @@ public class ActionOrderItem extends DBHelper {
             return true;
     }
 
-    public boolean VerificarLogin(){
+    public int VerificarOrderItem(){
         try {
             SQLiteDatabase db = this.getReadableDatabase();
-            String sql = "SELECT * FROM tbCustomer";
+            String sql = "SELECT * FROM tbOrderItem";
             Cursor c = db.rawQuery(sql, null);
-            if (c.getCount() == 1)
-                return true;
+            if (c.getCount() != 0)
+                return c.getCount();
             else
-                return false;
+                return 0;
         }
         catch (Exception e){
-            return false;
+            return 0;
         }
+    }
+
+    public List<OrderItem> ListarOrderItem(){
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            List<OrderItem> orderItems = new ArrayList<>();
+            String sql = "SELECT * FROM tbOrderItem";
+            Cursor c =db.rawQuery(sql, null);
+
+            while(c.moveToNext()) {
+                OrderItem orderItem = new OrderItem();
+                orderItem.setProdBarCode(c.getInt(c.getColumnIndex("ProdBarCode")));
+                orderItem.setProdName(c.getString(c.getColumnIndex("ProdName")));
+                orderItem.setItemUnitaryPrice(c.getString(c.getColumnIndex("ItemUnitaryPrice")));
+                orderItems.add(orderItem);
+            }
+            return orderItems;
+        }
+        catch (Exception e){
+            return null;
+        }
+
     }
 
     public boolean DeleteOrderItem(){

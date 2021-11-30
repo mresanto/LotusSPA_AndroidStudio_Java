@@ -4,23 +4,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_settings"
+        android:enabled="true"
         android:orderInCategory="0"
-        android:title="@string/settings_account"
-        app:showAsAction="never" />
-    <item android:title="@string/make_your_reservation"
+        android:icon="@drawable/ic_baseline_account_box_24"
+        android:title="@string/settings_account" />
+    <item
+        android:title="@string/make_your_reservation"
+        android:enabled="true"
         android:id="@+id/make_your_reservation_menu"
-        android:orderInCategory="2"
-        app:showAsAction="never"/>
-    <item android:title="@string/our_packages"
+        android:icon="@drawable/ic_baseline_assignment_24"
+        android:orderInCategory="2" />
+    <item
+        android:title="@string/our_packages"
+        android:enabled="true"
         android:id="@+id/our_packages_menu"
-        android:orderInCategory="3"
-        app:showAsAction="never"/>
-    <item android:title="@string/our_products"
+        android:icon="@drawable/ic_baseline_markunread_mailbox_24"
+        android:orderInCategory="3" />
+    <item
+        android:title="@string/our_products"
+        android:enabled="true"
         android:id="@+id/our_products_menu"
-        android:orderInCategory="4"
-        app:showAsAction="never"/>
-    <item android:title="@string/meet_uss"
+        android:icon="@drawable/ic_baseline_add_shopping_cart_24"
+        android:orderInCategory="4" />
+    <item
+        android:title="@string/meet_uss"
+        android:enabled="true"
         android:id="@+id/meet_uss_menu"
-        android:orderInCategory="5"
-        app:showAsAction="never"/>
+        android:icon="@drawable/ic_baseline_person_search_24"
+        android:orderInCategory="5" />
 </menu>

@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 public class DBHelper extends SQLiteOpenHelper {
 
-    private static int versao = 7;
+    private static int versao = 8;
     private static String nome = "Lotus_Spa";
 
     public DBHelper(@Nullable Context context){
@@ -22,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 " ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 " OrdCode TEXT," +
                 " ProdBarCode TEXT," +
+                " ProdName TEXT," +
                 " ItemUnitaryPrice TEXT," +
                 " ItemAmount TEXT);";
         try {

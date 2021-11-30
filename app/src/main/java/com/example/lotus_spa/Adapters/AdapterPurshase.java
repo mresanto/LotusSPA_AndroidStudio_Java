@@ -29,6 +29,7 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
     private Context mContext;
     private List<Product> products;
     private ItemClickListener mItemListener;
+    public ImageView mAddProduct;
 
     public AdapterPurshase(Context mContext, List<Product> products, ItemClickListener mItemListener) {
         this.mContext = mContext;
@@ -54,9 +55,14 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
         //Add image
         holder.imageproduct.setImageResource(R.drawable.ic_launcher_foreground);
 
+        holder.btnadd.setOnClickListener(v ->{
+            mItemListener.onAddClick(products.get(position));
+        });
+
         holder.itemView.setOnClickListener(v -> {
             mItemListener.onItemClick(products.get(position));
         });
+
     }
 
     @Override
@@ -66,19 +72,21 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
 
     public interface ItemClickListener{
         void onItemClick(Product product);
+        void onAddClick(Product product);
     }
 
     public static class MyViewHolder extends  RecyclerView.ViewHolder{
 
         TextView nameproduct;
         ImageView imageproduct;
+        ImageView btnadd;
 
         public MyViewHolder(View itemView){
             super(itemView);
 
             nameproduct = (TextView) itemView.findViewById(R.id.txtProductNameDisplayGrid);
             imageproduct = (ImageView) itemView.findViewById(R.id.imgProductDisplayGrid);
-
+            btnadd = (ImageView) itemView.findViewById(R.id.img_addproduct);
         }
     }
 }
