@@ -1,11 +1,13 @@
 package com.example.lotus_spa.Activitys;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -103,7 +105,14 @@ public class DetailsProductActivity extends AppCompatActivity {
         orderItem.setItemUnitaryPrice(product.get(0).getProdPrice());
         orderItem.setItemAmount(1);
         Log.e(TAG, "Teste: " + orderItem.getProdBarCode());
-        actionOrderItem.AddOrderItem(orderItem);
+
+        if(actionOrderItem.DetailsOrderItem(orderItem))
+        {
+            actionOrderItem.AddOrderItem(orderItem);
+        }else {
+            Toast.makeText(getApplicationContext(),"Produto já adicionar ao carrinho",Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "Produto já adicionado");
+        }
     }
     @Override
     public void finish() {

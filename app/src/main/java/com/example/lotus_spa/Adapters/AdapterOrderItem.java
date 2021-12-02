@@ -51,11 +51,11 @@ public class AdapterOrderItem extends RecyclerView.Adapter<AdapterOrderItem.MyVi
     public void onBindViewHolder(@NonNull @NotNull AdapterOrderItem.MyViewHolder holder, int position) {
 
 
-        holder.nameitem.setText(orderItems.get(position).getProdName());
+        holder.nameitem.setText("Nome: "+orderItems.get(position).getProdName());
         //Add image
         holder.imageitem.setImageResource(R.drawable.ic_launcher_foreground);
 
-        holder.priceitem.setText(orderItems.get(position).getItemUnitaryPrice());
+        holder.priceitem.setText("Preço: "+orderItems.get(position).getItemUnitaryPrice());
     }
 
     @Override
@@ -80,6 +80,12 @@ public class AdapterOrderItem extends RecyclerView.Adapter<AdapterOrderItem.MyVi
         orderItems.add(position, item);
         // notify item added by position
         notifyItemInserted(position);
+    }
+
+    private void removeItem(OrderItem orderItem){
+        int currPosition = orderItems.indexOf(orderItem);
+        orderItems.remove(currPosition);
+        notifyItemRemoved(currPosition);
     }
 
     public static class MyViewHolder extends  RecyclerView.ViewHolder{

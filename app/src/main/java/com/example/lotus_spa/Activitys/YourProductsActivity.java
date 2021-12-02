@@ -79,7 +79,7 @@ public class YourProductsActivity extends AppCompatActivity {
             @Override
             public void instantiateMyButton(RecyclerView.ViewHolder viewHolder, List<MySwipeHelper.MyButton> buffer) {
                 buffer.add(new MyButton(YourProductsActivity.this,
-                        "Delete",
+                        "Excluir",
                         30,
                         0, //image
                         Color.parseColor("#FF3c30"),
@@ -87,6 +87,8 @@ public class YourProductsActivity extends AppCompatActivity {
                             @Override
                             public void onClick(int pos) {
                                 Toast.makeText(YourProductsActivity.this, "Delete Click", Toast.LENGTH_SHORT);
+                                actionOrderItem.DeleteOrderItem(lstOrder.get(pos));
+                                myAdapter.removeItem(pos);
                             }
                         }));
             }

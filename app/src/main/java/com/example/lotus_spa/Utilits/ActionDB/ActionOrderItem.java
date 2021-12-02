@@ -54,6 +54,24 @@ public class ActionOrderItem extends DBHelper {
         }
     }
 
+    public boolean DetailsOrderItem(OrderItem orderItem){
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            String sql = "SELECT * FROM tbOrderItem where ProdBarCode = ? ";
+            String b = Integer.toString(orderItem.getProdBarCode());
+            String[] a = new String[] {Integer.toString(orderItem.getProdBarCode())};
+            Log.i("INFO DB Details", b);
+            Cursor c = db.rawQuery(sql, a);
+            if (c.getCount() != 0)
+                return false;
+            else
+                return true;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
     public List<OrderItem> ListarOrderItem(){
         try {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -76,21 +94,20 @@ public class ActionOrderItem extends DBHelper {
 
     }
 
-    public boolean DeleteOrderItem(){
+    public boolean DeleteOrderItem(OrderItem orderItem){
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT * FROM tbOrderItem";
         Cursor c = db.rawQuery(sql, null);
 
-        OrderItem orderItem = new OrderItem();
         try {
             c.moveToFirst();
             orderItem.setOrdCode(c.getInt(c.getColumnIndex("OrdCode")));
 
-            Integer i = orderItem.getOrdCode();
+            Integer i = orderItem.getProdBarCode();
             try {
                 String[] args = {i.toString()};
                 SQLiteDatabase db2 = getWritableDatabase();
-                db2.delete("tbOrderItem", "ID=?", args);
+                db2.delete("tbOrderItem", "ProdBarCode=?", args);
             } catch (Exception e) {
                 Log.i("INFO DELETE", "OrderItem não deletado");
                 return false;

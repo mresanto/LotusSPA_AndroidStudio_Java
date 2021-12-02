@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.lotus_spa.Adapters.AdapterPurshase;
 import com.example.lotus_spa.Class.OrderItem;
@@ -36,7 +37,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PurchaseActivity extends AppCompatActivity {
-    private static final String TAG = "UpdateAccount";
+    private static final String TAG = "PurshaseActivity";
     private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
     private Spinner spinner;
     RecyclerView myrv;
@@ -116,13 +117,21 @@ public class PurchaseActivity extends AppCompatActivity {
                     public void onAddClick(Product product) {
                         ActionOrderItem actionOrderItem = new ActionOrderItem(PurchaseActivity.this);
                         OrderItem orderItem = new OrderItem();
+
                         orderItem.setProdBarCode(product.getProdBarCode());
                         orderItem.setProdName(product.getProdName());
                         orderItem.setItemUnitaryPrice(product.getProdPrice());
                         orderItem.setItemAmount(1);
-                        Log.e(TAG, "Teste: " + orderItem.getProdBarCode());
-                        actionOrderItem.AddOrderItem(orderItem);
-                        setupBadged();
+
+                        if(actionOrderItem.DetailsOrderItem(orderItem))
+                        {
+                            actionOrderItem.AddOrderItem(orderItem);
+                            setupBadged();
+                        }else {
+                            Log.e(TAG, "Produto já adicionado");
+                            Toast.makeText(PurchaseActivity.this,"Produto já adicionar ao carrinho",Toast.LENGTH_SHORT).show();
+
+                        }
                         //terminar
                     }
                 });
