@@ -44,4 +44,6 @@
     <string name="catname">Categoria</string>
     <string name="amount">Quantidade</string>
     <string name="add_prod">Adicionar Produto</string>
+    <string name="delete">DELETE</string>
+
 </resources>

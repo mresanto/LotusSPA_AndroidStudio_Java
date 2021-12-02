@@ -10,4 +10,10 @@
     <color name="pattern">#004c65</color>
     <color name="grey">#808080</color>
     <color name="royalblue">#4169e1</color>
+    <color name="colorPrimary">#111</color>
+    <color name="colorPrimaryDark">#FFF</color>
+    <color name="colorAccent">#ea3732</color>
+    <color name="bg_row_background">#fa315b</color>
+    <color name="item_name">#535353</color>
+    <color name="description">#a9a9a9</color>
 </resources>
