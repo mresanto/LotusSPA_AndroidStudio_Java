@@ -47,9 +47,9 @@ public class DetailsProductActivity extends AppCompatActivity {
         txtcat = findViewById(R.id.txtcatname);
         btnCadProd = findViewById(R.id.btnAddProd);
 
-        Bundle extreas = getIntent().getExtras();
-        if(extreas != null){
-            prodcode = extreas.getInt("Product");
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            prodcode = extras.getInt("Product");
         }
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -82,7 +82,6 @@ public class DetailsProductActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         AddOrderItem(products);
-
                         finish();
                     }
                 });

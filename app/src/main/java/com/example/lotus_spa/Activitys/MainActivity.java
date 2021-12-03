@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.lotus_spa.Class.Packages;
 import com.example.lotus_spa.R;
+import com.example.lotus_spa.Utilits.ActionDB.ActionOrderItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionOrderItem actionOrderItem = new ActionOrderItem(MainActivity.this);
+        actionOrderItem.UpdateAllOrderItem();
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -32,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.our_products_menu:
                             intent = new Intent(MainActivity.this, PurchaseActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                            break;
+
+                        case R.id.our_packages_menu:
+                            intent = new Intent(MainActivity.this, PackagesActivity.class);
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                             break;

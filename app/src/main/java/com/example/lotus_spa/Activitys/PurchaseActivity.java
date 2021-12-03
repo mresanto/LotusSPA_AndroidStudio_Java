@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.lotus_spa.Adapters.AdapterPurshase;
 import com.example.lotus_spa.Class.OrderItem;
+import com.example.lotus_spa.Class.Packages;
 import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Interface.ApiProduct;
 import com.example.lotus_spa.R;
@@ -104,6 +105,8 @@ public class PurchaseActivity extends AppCompatActivity {
 
                 response.body().toString();
                 List<Product> lstProducts = new ArrayList<>(response.body());
+
+
                 //Spinner
                 myAdapter = new AdapterPurshase(PurchaseActivity.this, lstProducts, new AdapterPurshase.ItemClickListener(){
                     @Override

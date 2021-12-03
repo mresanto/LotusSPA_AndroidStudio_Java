@@ -25,8 +25,4 @@ public interface ApiProduct {
     @GET("Product/{prodcode}")
     Call<List<Product>> getDetailsProduct(@Path("prodcode") int procode);
 
-
-
-
-
 }

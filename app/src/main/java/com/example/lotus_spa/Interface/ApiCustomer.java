@@ -1,16 +1,11 @@
 package com.example.lotus_spa.Interface;
 
 import com.example.lotus_spa.Class.Customer;
-import com.example.lotus_spa.Class.Feed;
-import com.example.lotus_spa.Class.Resultado;
 
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;

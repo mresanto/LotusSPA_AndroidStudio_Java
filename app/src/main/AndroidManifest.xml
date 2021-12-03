@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotus_SPA"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activitys.DetailsProductActivity"></activity>
+        <activity android:name=".Activitys.DetailsPackagesActivity"></activity>
+        <activity android:name=".Activitys.PackagesActivity" />
+        <activity android:name=".Activitys.EndOrderActivity" />
+        <activity android:name=".Activitys.DetailsProductActivity" />
         <activity android:name=".Activitys.YourProductsActivity" />
         <activity android:name=".Activitys.UpdateAccountActivity" />
         <activity android:name=".Activitys.YourAccountActivity" />

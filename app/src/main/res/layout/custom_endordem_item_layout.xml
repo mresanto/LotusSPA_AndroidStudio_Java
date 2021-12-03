@@ -6,14 +6,6 @@
     android:layout_height="wrap_content"
     android:gravity="center|start|end">
 
-    <CheckBox
-        android:id="@+id/checkOrderItem"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:buttonTint="@color/pattern"
-        tools:targetApi="lollipop" />
-
     <ImageView
         android:id="@+id/imgProductOrderItemDisplay"
         android:layout_width="wrap_content"

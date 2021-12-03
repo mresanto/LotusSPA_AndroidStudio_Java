@@ -2,12 +2,14 @@ package com.example.lotus_spa.Adapters;
 
 import android.content.Context;
 import android.media.Image;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,7 +31,7 @@ public class AdapterPurshase extends RecyclerView.Adapter<AdapterPurshase.MyView
     private Context mContext;
     private List<Product> products;
     private ItemClickListener mItemListener;
-    public ImageView mAddProduct;
+
 
     public AdapterPurshase(Context mContext, List<Product> products, ItemClickListener mItemListener) {
         this.mContext = mContext;

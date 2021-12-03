@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -37,6 +38,35 @@ public class ActionOrderItem extends DBHelper {
             return false;
         else
             return true;
+    }
+
+    public boolean UpdateOrderItem(List<OrderItem> orderItem){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("OrdCode", 2);
+        long result = -1;
+        for(int i = 0; i < orderItem.size(); i++){
+            result = db.update("tbOrderItem",cv,"ProdBarCode=?", new String[]{Integer.toString(orderItem.get(i).getProdBarCode())});
+        }
+        db.close();
+        if(result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
+    public boolean UpdateAllOrderItem(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("OrdCode", 1);
+        long result = db.update("tbOrderItem",cv,null, null);
+        db.close();
+        if(result == -1)
+            return false;
+        else
+            return true;
+
     }
 
     public int VerificarOrderItem(){
@@ -83,6 +113,30 @@ public class ActionOrderItem extends DBHelper {
                 OrderItem orderItem = new OrderItem();
                 orderItem.setProdBarCode(c.getInt(c.getColumnIndex("ProdBarCode")));
                 orderItem.setProdName(c.getString(c.getColumnIndex("ProdName")));
+                orderItem.setOrdCode(c.getInt(c.getColumnIndex("OrdCode")));
+                orderItem.setItemUnitaryPrice(c.getString(c.getColumnIndex("ItemUnitaryPrice")));
+                orderItems.add(orderItem);
+            }
+            return orderItems;
+        }
+        catch (Exception e){
+            return null;
+        }
+
+    }
+
+    public List<OrderItem> ListarOrderItemOrd(){
+        try {
+            SQLiteDatabase db = this.getReadableDatabase();
+            List<OrderItem> orderItems = new ArrayList<>();
+            String sql = "SELECT * FROM tbOrderItem WHERE OrdCode = 2";
+            Cursor c =db.rawQuery(sql, null);
+
+            while(c.moveToNext()) {
+                OrderItem orderItem = new OrderItem();
+                orderItem.setProdBarCode(c.getInt(c.getColumnIndex("ProdBarCode")));
+                orderItem.setProdName(c.getString(c.getColumnIndex("ProdName")));
+                orderItem.setOrdCode(c.getInt(c.getColumnIndex("OrdCode")));
                 orderItem.setItemUnitaryPrice(c.getString(c.getColumnIndex("ItemUnitaryPrice")));
                 orderItems.add(orderItem);
             }

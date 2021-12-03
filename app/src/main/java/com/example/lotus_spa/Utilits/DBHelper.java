@@ -25,8 +25,20 @@ public class DBHelper extends SQLiteOpenHelper {
                 " ProdName TEXT," +
                 " ItemUnitaryPrice TEXT," +
                 " ItemAmount TEXT);";
+
+        String str2= "CREATE TABLE tbOrder(" +
+                " ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " OrdCode TEXT," +
+                " OrdDate TEXT," +
+                " OrdTotalPrice TEXT," +
+                " StatusOrder TEXT," +
+                " IsDeleted TEXT," +
+                " PayCode TEXT," +
+                " IsDeleted TEXT);";
+
         try {
             db.execSQL(str);
+            db.execSQL(str2);
             Log.i("INFO DB", "Sucesso ao criar a tabela");
         }catch (Exception e){
             Log.i("INFO DB", "Erro ao criar a tabela" + e.getMessage());
@@ -36,6 +48,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS tbOrderItem;");
+        db.execSQL("DROP TABLE IF EXISTS tbOrder;");
         onCreate(db);
         Log.i("INFO DB", "Banco Atualizado");
     }

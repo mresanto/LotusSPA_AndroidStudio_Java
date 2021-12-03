@@ -6,6 +6,7 @@
     <string name="password">Senha</string>
     <string name="recuperar_senha">Recuperar Senha</string>
     <string name="make_login">Fazer Login</string>
+    <string name="make_order">Fazer Pedido</string>
     <string name="create_an_account">Criar Conta</string>
     <string name="registration">Cadastro</string>
     <string name="create_my_account">Criar minha conta</string>
@@ -45,5 +46,8 @@
     <string name="amount">Quantidade</string>
     <string name="add_prod">Adicionar Produto</string>
     <string name="delete">DELETE</string>
-
+    <string name="end_order">Finalizar Pedido</string>
+    <string name="delivery_address">Endereço de Entrega</string>
+    <string name="add_package">Comprar Serviço</string>
+    <string name="description">Descrição</string>
 </resources>

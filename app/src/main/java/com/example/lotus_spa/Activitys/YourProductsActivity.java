@@ -1,5 +1,6 @@
 package com.example.lotus_spa.Activitys;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,6 +15,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.lotus_spa.Adapters.AdapterOrderItem;
@@ -44,36 +46,49 @@ public class YourProductsActivity extends AppCompatActivity {
     RecyclerView myrv;
     AdapterOrderItem myAdapter;
     private List<OrderItem> lstOrder;
+    Button btnEndOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_your_products);
         myrv = findViewById(R.id.rvOrderItem);
-
+        btnEndOrder = findViewById(R.id.btnEndOrder);
 
         Request();
 
 
+        btnEndOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(myAdapter.getOrderItems().size() != 0){
+                    ActionOrderItem actionOrderItem = new ActionOrderItem(YourProductsActivity.this);
+                    actionOrderItem.UpdateOrderItem(myAdapter.getOrderItems());
+                    Intent intent = new Intent(YourProductsActivity.this, EndOrderActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }else{
+                    Log.e(TAG, "CheckBox não selecionada:");
+                    AlertDialog.Builder missingserver = new AlertDialog.Builder(YourProductsActivity.this);
+                    missingserver.setTitle("Selecionar Produto");
+                    missingserver.setMessage("Você não selecionou quaisquer itens para checkout");
+                    missingserver.create().show();
+                }
+
+            }
+        });
     }
 
     private void Request() {
 
         ActionOrderItem actionOrderItem = new ActionOrderItem(this);
         lstOrder = new ArrayList<>(actionOrderItem.ListarOrderItem());
-        myAdapter = new AdapterOrderItem(YourProductsActivity.this, lstOrder, new AdapterOrderItem.ItemClickListener() {
-            @Override
-            public void onItemClick(Product product) {
-
-            }
-
-            @Override
-            public void onAddClick(Product product) {
-
-            }
-        });
+        myAdapter = new AdapterOrderItem(getApplicationContext(),lstOrder);
         myrv.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         myrv.setAdapter(myAdapter);
+
+        Log.d(TAG, "Teste Checked" + actionOrderItem.ListarOrderItem());
+
 
         MySwipeHelper swipeHelper = new MySwipeHelper(this, myrv, 200) {
             @Override
