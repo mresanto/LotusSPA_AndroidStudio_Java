@@ -1,15 +1,22 @@
 package com.example.lotus_spa.Activitys;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +51,7 @@ public class EndOrderActivity extends AppCompatActivity {
     AdapterEndOrder myAdapter;
     List<OrderItem> lstChecked;
     RecyclerView myrv;
+    Spinner spinner;
 
 
 
@@ -57,6 +65,7 @@ public class EndOrderActivity extends AppCompatActivity {
         Logradouro = findViewById(R.id.txtLogEndOrder);
         CidadeUf = findViewById(R.id.txtCidadeUfEndOrder);
         TotalPrice = findViewById(R.id.txtTotalPrice);
+        spinner = findViewById(R.id.spiGreetingCard);
         
         myrv = findViewById(R.id.rvEndOrder);
 
@@ -75,6 +84,34 @@ public class EndOrderActivity extends AppCompatActivity {
 
 
         AddRecycle();
+
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        ConfigSpinner();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void ConfigSpinner(){
+        ArrayList<String> categoryspinner= new ArrayList<>();
+        categoryspinner.add("Débito");
+        categoryspinner.add("Crédito");
+        categoryspinner.add("Cash");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryspinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
     }
 
     private void Request(String email, ApiCustomer apiCustomer) {
@@ -98,6 +135,16 @@ public class EndOrderActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
                 Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+                AlertDialog.Builder missingserver = new AlertDialog.Builder(EndOrderActivity.this);
+                missingserver.setTitle("Server not found!");
+                missingserver.setMessage("Servidores Offline, por favor tente novamente mais tarde");
+                missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                missingserver.create().show();
             }
         });
     }
@@ -134,7 +181,17 @@ public class EndOrderActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<Cep> call, Throwable t) {
-                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco CEP: " + t.getMessage());
+                AlertDialog.Builder missingserver = new AlertDialog.Builder(EndOrderActivity.this);
+                missingserver.setTitle("Server not found!");
+                missingserver.setMessage("Servidor ViaCEP Offline, por favor tente novamente mais tarde");
+                missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                missingserver.create().show();
             }
         });
     }

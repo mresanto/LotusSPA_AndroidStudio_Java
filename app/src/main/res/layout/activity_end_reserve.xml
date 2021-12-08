@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/pattern"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.EndOrderActivity">
+    android:background="@color/pattern"
+    tools:context=".Activitys.EndReserveActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,13 +28,13 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/delivery_address"
+            android:text="@string/date_reserve"
             android:textColor="@color/pattern"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txtNameTeleEndOrder"
+            android:id="@+id/txtDateEndReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -44,41 +44,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
-        <TextView
-            android:id="@+id/txtLogEndOrder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtNameTeleEndOrder" />
-
-        <TextView
-            android:id="@+id/txtCidadeUfEndOrder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLogEndOrder" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvEndOrder"
+        <ImageView
+            android:id="@+id/imgPackageReserve"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="#2d2d2d"
+            android:contentDescription="@string/todo"
+            android:minHeight="160dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCidadeUfEndOrder">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            app:layout_constraintTop_toBottomOf="@+id/txtDateEndReserve"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
-            android:id="@+id/txtTotalPrice"
+            android:id="@+id/txtNameEndReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -86,20 +74,32 @@
             android:layout_marginTop="8dp"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvEndOrder" />
+            app:layout_constraintTop_toBottomOf="@+id/imgPackageReserve" />
 
-        <Spinner
-            android:id="@+id/spiGreetingCard"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/txtPriceEndReserve"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtTotalPrice" />
+            app:layout_constraintTop_toBottomOf="@+id/txtNameEndReserve" />
+
+        <TextView
+            android:id="@+id/txtAmountEndReserve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPriceEndReserve" />
 
         <Button
-            android:id="@+id/btnOrder"
+            android:id="@+id/btnEndReserve"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -107,11 +107,11 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:text="@string/make_order"
+            android:text="@string/make_reserve"
             style="@style/PatternButtonColored"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spiGreetingCard" />
+            app:layout_constraintTop_toBottomOf="@+id/txtAmountEndReserve" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

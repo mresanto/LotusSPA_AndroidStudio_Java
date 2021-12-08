@@ -1,19 +1,23 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Details;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.lotus_spa.Activitys.EndReserveActivity;
 import com.example.lotus_spa.Class.Packages;
-import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Interface.ApiPackages;
-import com.example.lotus_spa.Interface.ApiProduct;
 import com.example.lotus_spa.R;
 
 import java.util.List;
@@ -59,6 +63,21 @@ public class DetailsPackagesActivity extends AppCompatActivity {
         if(packcode != 0)
             Request(packcode, apiPackages);
 
+
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void Request(int packcode, ApiPackages apiPackages) {
@@ -79,7 +98,10 @@ public class DetailsPackagesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         //AddOrderItem(products);
-                        finish();
+                        Intent intent = new Intent(DetailsPackagesActivity.this, EndReserveActivity.class);
+                        intent.putExtra("Package",packages.get(0).getPackcode());
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                     }
                 });
             }
@@ -89,6 +111,12 @@ public class DetailsPackagesActivity extends AppCompatActivity {
                 AlertDialog.Builder missingserver = new AlertDialog.Builder(DetailsPackagesActivity.this);
                 missingserver.setTitle("Server not found!");
                 missingserver.setMessage("Servidores Offline, por favor tente novamente mais tarde");
+                missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
                 missingserver.create().show();
             }
         });

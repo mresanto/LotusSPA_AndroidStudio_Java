@@ -26,7 +26,7 @@
     <string name="feminine">Feminino</string>
     <string name="telephone">Telefone</string>
     <string name="birthdate">Data de Nascimento</string>
-    <string name="first_scheduling">O primeiro<br /> agendamento tem<br /> 25% de desconto :)</string>
+    <string name="first_scheduling">O primeiro<br /> agendamento tem<br /> 25% de desconto</string>
     <string name="schedule_a_time">Agende um horário</string>
     <string name="mytelephone">Telefone (12) 3456-7890</string>
     <string name="myemail">E-mail lotusspa@gmail.com</string>
@@ -50,4 +50,9 @@
     <string name="delivery_address">Endereço de Entrega</string>
     <string name="add_package">Comprar Serviço</string>
     <string name="description">Descrição</string>
+    <string name="date_reserve">Validade da Reserva</string>
+    <string name="make_reserve">Realizar Reserva</string>
+    <string name="title_activity_places">Map</string>
+    <string name="find_place">Procure o estabelecimento<br/> mais perto</string>
+    <string name="your_api_key">AIzaSyCIt8fjGEw241jz1wQWa2Fbzi1qsf8-rkk</string>
 </resources>

@@ -19,7 +19,7 @@
             <ImageView
                 android:id="@+id/imgProductDisplayGrid"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:background="#2d2d2d"
                 android:contentDescription="@string/todo"
                 android:minHeight="160dp"

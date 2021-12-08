@@ -1,13 +1,15 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Mains;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,9 +20,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lotus_spa.Activitys.Details.DetailsProductActivity;
+import com.example.lotus_spa.Activitys.Your.YourProductsActivity;
 import com.example.lotus_spa.Adapters.AdapterPurshase;
 import com.example.lotus_spa.Class.OrderItem;
-import com.example.lotus_spa.Class.Packages;
 import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Interface.ApiProduct;
 import com.example.lotus_spa.R;
@@ -76,22 +79,25 @@ public class PurchaseActivity extends AppCompatActivity {
         });
 
 
+
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
 
     private void ConfigSpinner(){
         ArrayList<String> categoryspinner= new ArrayList<>();
         categoryspinner.add("Todos");
-        categoryspinner.add("Brinquedo");
-        categoryspinner.add("Eletronico");
-        categoryspinner.add("Banco");
+        categoryspinner.add("Creme");
+        categoryspinner.add("Shampoo");
+        categoryspinner.add("Pente");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categoryspinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner = findViewById(R.id.spCategoryProduct);
         spinner.setAdapter(adapter);
-
-
     }
      private void Request(String category, ApiProduct apiProduct) {
          Call<List<Product>> call;
@@ -144,7 +150,17 @@ public class PurchaseActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NotNull Call<List<Product>> call, @NotNull Throwable t) {
-                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco2: " + t.getMessage());
+                AlertDialog.Builder missingserver = new AlertDialog.Builder(PurchaseActivity.this);
+                missingserver.setTitle("Server not found!");
+                missingserver.setMessage("Servidores Offline, por favor tente novamente mais tarde");
+                missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                missingserver.create().show();
             }
         });
 
@@ -174,6 +190,11 @@ public class PurchaseActivity extends AppCompatActivity {
             Intent intent = new Intent(PurchaseActivity.this, YourProductsActivity.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

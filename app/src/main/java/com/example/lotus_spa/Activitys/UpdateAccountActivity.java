@@ -1,9 +1,12 @@
 package com.example.lotus_spa.Activitys;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -11,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -89,6 +93,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
         mDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month +1;
                 String date ="Data Seleciona:" + dayOfMonth + "/" + month + "/" + year;
                 uptvDialog.setText(date);
                 finaldate = year+"-"+month+"-"+dayOfMonth;
@@ -128,7 +133,20 @@ public class UpdateAccountActivity extends AppCompatActivity {
                 UpCostumer(customer, apiCustomer);
             }
         });
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -164,8 +182,18 @@ public class UpdateAccountActivity extends AppCompatActivity {
             //
             @Override
             public void onFailure(Call<Customer> call, Throwable t) {
-                Toast.makeText(UpdateAccountActivity.this, "Update não realizado com sucesso", Toast.LENGTH_SHORT).show();
-                Log.e("OnResponse:", "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
+                AlertDialog.Builder missingserver = new AlertDialog.Builder(UpdateAccountActivity.this);
+                missingserver.setTitle("Atualização não realizada com sucesso!");
+                missingserver.setMessage("Servidores Offline, por favor tente novamente mais tarde");
+                missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                missingserver.create().show();
+                Log.e(TAG, "Infelizmente algo deu errado na chamada do banco: " + t.getMessage());
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Mains;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -154,6 +154,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public boolean VerificarLogin(){
+
         SharedPreferences s = getSharedPreferences("LOGINOUT", MODE_PRIVATE);
         Boolean b = s.getBoolean("savelogin",false);
         return b;

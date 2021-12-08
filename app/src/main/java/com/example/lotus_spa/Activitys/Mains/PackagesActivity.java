@@ -1,5 +1,7 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Mains;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,19 +10,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.MenuItem;
 
+import com.example.lotus_spa.Activitys.Details.DetailsPackagesActivity;
 import com.example.lotus_spa.Adapters.AdapterPackages;
-import com.example.lotus_spa.Adapters.AdapterPurshase;
-import com.example.lotus_spa.Class.OrderItem;
 import com.example.lotus_spa.Class.Packages;
-import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Interface.ApiPackages;
-import com.example.lotus_spa.Interface.ApiProduct;
 import com.example.lotus_spa.R;
-import com.example.lotus_spa.Utilits.ActionDB.ActionOrderItem;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +53,23 @@ public class PackagesActivity extends AppCompatActivity {
 
         Request(apiPackages);
 
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     private void Request(ApiPackages apiPackages) {
         Call<List<Packages>> call;

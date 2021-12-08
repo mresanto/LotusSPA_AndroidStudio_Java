@@ -58,6 +58,24 @@ public class AdapterOrderItem extends RecyclerView.Adapter<AdapterOrderItem.MyVi
         //Add image
         holder.imageitem.setImageResource(R.drawable.ic_launcher_foreground);
 
+        switch (orderItems.get(position).getProdBarCode()) {
+            case 123600006:
+                holder.imageitem.setImageResource(R.drawable.shampo_johnson);
+                break;
+            case 123607999:
+                holder.imageitem.setImageResource(R.drawable.creme_reduxcel);
+                break;
+            case 123609999:
+                holder.imageitem.setImageResource(R.drawable.creme_de_massagem_pimenta_negra);
+                break;
+            case 123654656:
+                holder.imageitem.setImageResource(R.drawable.shampo_pantene);
+                break;
+            case 555555555:
+                holder.imageitem.setImageResource(R.drawable.pente_santa_clara);
+                break;
+        }
+
         holder.priceitem.setText("Preço: "+orderItems.get(position).getItemUnitaryPrice());
 
         holder.checkitem.setOnClickListener(v -> {

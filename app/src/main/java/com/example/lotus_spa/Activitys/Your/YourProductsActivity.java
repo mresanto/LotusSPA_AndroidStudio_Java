@@ -1,42 +1,32 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Your;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.lotus_spa.Activitys.EndOrderActivity;
 import com.example.lotus_spa.Adapters.AdapterOrderItem;
-import com.example.lotus_spa.Adapters.AdapterPurshase;
 import com.example.lotus_spa.Class.OrderItem;
-import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Helper.MyButtonClickListener;
 import com.example.lotus_spa.Helper.MySwipeHelper;
-import com.example.lotus_spa.Interface.ApiProduct;
 import com.example.lotus_spa.R;
 import com.example.lotus_spa.Utilits.ActionDB.ActionOrderItem;
-import com.google.android.material.snackbar.Snackbar;
-
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class YourProductsActivity extends AppCompatActivity {
 
@@ -77,6 +67,20 @@ public class YourProductsActivity extends AppCompatActivity {
 
             }
         });
+        ActionBar actionBar = getSupportActionBar();
+        // showing the back button in action bar
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void Request() {

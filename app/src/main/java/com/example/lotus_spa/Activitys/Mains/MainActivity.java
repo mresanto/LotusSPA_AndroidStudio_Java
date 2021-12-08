@@ -1,4 +1,4 @@
-package com.example.lotus_spa.Activitys;
+package com.example.lotus_spa.Activitys.Mains;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-import com.example.lotus_spa.Class.Packages;
+import com.example.lotus_spa.Activitys.PlacesActivity;
+import com.example.lotus_spa.Activitys.Your.YourAccountActivity;
 import com.example.lotus_spa.R;
 import com.example.lotus_spa.Utilits.ActionDB.ActionOrderItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+    Button places;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,10 +27,21 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        places = findViewById(R.id.btnPlaces);
+
+        places.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PlacesActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
 //
         //Toolbar toolbar = findViewById(R.id.toolbar);
-
     }
+
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener=
             new BottomNavigationView.OnNavigationItemSelectedListener() {

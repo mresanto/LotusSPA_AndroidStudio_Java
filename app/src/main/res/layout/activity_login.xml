@@ -5,7 +5,7 @@
     android:background="@color/pattern"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.LoginActivity">
+    tools:context=".Activitys.Mains.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -3,6 +3,8 @@ package com.example.lotus_spa.Class;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.sql.Blob;
+
 public class Product {
 
     @SerializedName("ProdBarCode")
@@ -16,6 +18,10 @@ public class Product {
     @SerializedName("ProdPrice")
     @Expose
     private String ProdPrice;
+
+    @SerializedName("Image")
+    @Expose
+    private String Image;
 
     @SerializedName("IsDeleted")
     @Expose
@@ -35,10 +41,11 @@ public class Product {
 
     }
 
-    public Product(int prodBarCode, String prodName, String prodPrice, Boolean isDeleted, int catCode, String catName, int imageProduct) {
+    public Product(int prodBarCode, String prodName, String prodPrice, String image, Boolean isDeleted, int catCode, String catName, int imageProduct) {
         ProdBarCode = prodBarCode;
         ProdName = prodName;
         ProdPrice = prodPrice;
+        Image = image;
         IsDeleted = isDeleted;
         CatCode = catCode;
         CatName = catName;
@@ -67,6 +74,14 @@ public class Product {
 
     public void setProdPrice(String prodPrice) {
         ProdPrice = prodPrice;
+    }
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
     }
 
     public Boolean getDeleted() {
