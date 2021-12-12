@@ -98,6 +98,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtPriceEndReserve" />
 
+        <Spinner
+            android:id="@+id/spiGreetingCardReserve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPriceEndReserve" />
+
         <Button
             android:id="@+id/btnEndReserve"
             android:layout_width="wrap_content"
@@ -111,7 +121,7 @@
             style="@style/PatternButtonColored"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtAmountEndReserve" />
+            app:layout_constraintTop_toBottomOf="@+id/spiGreetingCardReserve" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

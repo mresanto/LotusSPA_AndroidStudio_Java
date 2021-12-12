@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lotus_SPA</string>
+    <string name="app_name">Spa Lotus</string>
     <string name="textview">TextView</string>
     <string name="login">Login</string>
     <string name="email">E-mail</string>
@@ -55,4 +55,6 @@
     <string name="title_activity_places">Map</string>
     <string name="find_place">Procure o estabelecimento<br/> mais perto</string>
     <string name="your_api_key">AIzaSyCIt8fjGEw241jz1wQWa2Fbzi1qsf8-rkk</string>
+    <string name="products">Produtos</string>
+    <string name="details_product">Detalhes do Produto</string>
 </resources>

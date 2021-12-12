@@ -5,32 +5,40 @@ import com.google.gson.annotations.SerializedName;
 
 public class OrderItem {
 
-    @SerializedName("OrdCode")
-    @Expose
     private int OrdCode;
 
-    @SerializedName("ProdBarCode")
+    @SerializedName("prodBarCode")
     @Expose
     private int ProdBarCode;
 
-    private String ProdName;
-
-    @SerializedName("ItemUnitaryPrice")
+    @SerializedName("itemUnitaryPrice")
     @Expose
     private String ItemUnitaryPrice;
 
-    @SerializedName("ItemAmount")
+    @SerializedName("itemAmount")
     @Expose
     private int ItemAmount;
+
+    @SerializedName("totalPrice")
+    @Expose
+    private String TotalPrice;
+
+    @SerializedName("custCPF")
+    @Expose
+    private String CustCPF;
+
+    private String ProdName;
 
     public OrderItem() {
     }
 
-    public OrderItem(int ordCode, int prodBarCode, String itemUnitaryPrice, int itemAmount, String prodName) {
+    public OrderItem(int ordCode, int prodBarCode, String itemUnitaryPrice, int itemAmount, String totalPrice, String custCPF, String prodName) {
         OrdCode = ordCode;
         ProdBarCode = prodBarCode;
         ItemUnitaryPrice = itemUnitaryPrice;
         ItemAmount = itemAmount;
+        TotalPrice = totalPrice;
+        CustCPF = custCPF;
         ProdName = prodName;
     }
 
@@ -50,14 +58,6 @@ public class OrderItem {
         ProdBarCode = prodBarCode;
     }
 
-    public String getProdName() {
-        return ProdName;
-    }
-
-    public void setProdName(String prodName) {
-        ProdName = prodName;
-    }
-
     public String getItemUnitaryPrice() {
         return ItemUnitaryPrice;
     }
@@ -72,5 +72,29 @@ public class OrderItem {
 
     public void setItemAmount(int itemAmount) {
         ItemAmount = itemAmount;
+    }
+
+    public String getTotalPrice() {
+        return TotalPrice;
+    }
+
+    public void setTotalPrice(String totalPrice) {
+        TotalPrice = totalPrice;
+    }
+
+    public String getCustCPF() {
+        return CustCPF;
+    }
+
+    public void setCustCPF(String custCPF) {
+        CustCPF = custCPF;
+    }
+
+    public String getProdName() {
+        return ProdName;
+    }
+
+    public void setProdName(String prodBarName) {
+        ProdName = prodBarName;
     }
 }
