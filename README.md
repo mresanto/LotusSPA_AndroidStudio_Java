@@ -44,7 +44,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://avatars.githubusercontent.com/u/66914500?v=4" width="100px;" alt="Foto do mresanto"/><br>
         <sub>
-          <b>Micael Rodrigues</b>
+          <b>Micael Rodrigues</b> <br> <b>Desenvolvedor</b>
         </sub>
       </a>
     </td>
@@ -52,10 +52,20 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://avatars.githubusercontent.com/u/66427525?v=4" width="100px;" alt="Foto do GHCerruti no GitHub"/><br>
         <sub>
-          <b>Gabriel Cerruti</b>
+          <b>Gabriel Cerruti</b>  <br> <b>Banco</b>
         </sub>
       </a>
     </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/66626306?v=4" width="100px;" alt="Foto do GuilhermeCallegari no GitHub"/><br>
+        <sub>
+          <b>Guilherme Callegari</b>  <br> <b>Design</b>
+        </sub>
+      </a>
+    </td>
+    
+    
   </tr>
 </table>
 
