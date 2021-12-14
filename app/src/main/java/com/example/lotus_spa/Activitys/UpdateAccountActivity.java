@@ -49,7 +49,7 @@ public class UpdateAccountActivity extends AppCompatActivity {
     private String finaldate;
     private Button btnUpdate;
     private static final String TAG = "UpdateAccount";
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
 
 
     @Override

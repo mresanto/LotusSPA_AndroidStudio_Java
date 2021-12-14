@@ -43,7 +43,7 @@ public class AdapterOrder extends RecyclerView.Adapter<AdapterOrder.MyViewHolder
     public void onBindViewHolder(@NonNull @NotNull AdapterOrder.MyViewHolder holder, int position) {
 
         holder.dateitem.setText(orders.get(position).getOrdDate());
-        holder.priceitem.setText(orders.get(position).getTotalPrice());
+        holder.priceitem.setText(String.valueOf(orders.get(position).getTotalPrice()));
         holder.payOptionitem.setText(orders.get(position).getPayOption());
     }
     

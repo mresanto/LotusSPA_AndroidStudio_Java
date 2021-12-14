@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtPassword;
     private Call<List<Customer>> call;
 
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     private static final String TAG = "LoginActivity";
 
     @Override

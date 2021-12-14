@@ -49,7 +49,7 @@ public class EndReserveActivity extends AppCompatActivity {
     private Call<List<Packages>> call;
     public String opPayOp;
     private static final String TAG = "EndReserve";
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     private TextView DateReserve, NameReserve, PriceReserve;
     private Button btnReserve;
     Spinner spinner;
@@ -106,7 +106,7 @@ public class EndReserveActivity extends AppCompatActivity {
 
                 String primarydate = DateReserve.getText().toString();
                 String[] data = primarydate.split("/");
-                String finaldate = data[2] + "-" + data[0] + "-" + data[1];
+                String finaldate = data[2] + "-" + data[1] + "-" + data[0];
 
                 SharedPreferences s = getSharedPreferences("LOGINOUT", MODE_PRIVATE);
                 String cpf = s.getString("cpf","");
@@ -116,9 +116,9 @@ public class EndReserveActivity extends AppCompatActivity {
                 String payvalue = s1.getString("payvalue","0");
 
                 Calendar c = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
+                reserve.setResCode(0);
                 reserve.setResValidity(finaldate);
                 reserve.setResAmount(1);
                 reserve.setStatusReserve('U');
@@ -131,13 +131,13 @@ public class EndReserveActivity extends AppCompatActivity {
                 reserve.setPayOption(opPayOp);
 
 
-
+                Log.d(TAG, "Reserve Itens: " + reserve.getResCode());
                 Log.d(TAG, "Reserve Itens: " + reserve.getResValidity());
                 Log.d(TAG, "Reserve Itens: " + reserve.getResAmount());
                 Log.d(TAG, "Reserve Itens: " + reserve.getStatusReserve());
                 Log.d(TAG, "Reserve Itens: " + reserve.getIsDeleted());
-                Log.d(TAG, "Reserve Itens: " + reserve.getPackCode());
                 Log.d(TAG, "Reserve Itens: " + reserve.getCustCPF());
+                Log.d(TAG, "Reserve Itens: " + reserve.getPackCode());
                 Log.d(TAG, "Reserve Itens: " + reserve.getPayDate());
                 Log.d(TAG, "Reserve Itens: " + reserve.getPayValue());
                 Log.d(TAG, "Reserve Itens: " + reserve.getStatusPayment());
@@ -188,9 +188,9 @@ public class EndReserveActivity extends AppCompatActivity {
             public void onResponse(Call<Reserve> call, Response<Reserve> response) {
                 if(!response.isSuccessful()){
                     Toast.makeText(EndReserveActivity.this, "Reserva não realizada", Toast.LENGTH_SHORT).show();
-
                 }
                 Toast.makeText(EndReserveActivity.this, "Agendamento da Reserva Completa", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "Reserve message:" + response.message());
                 finish();
             }
 

@@ -41,7 +41,7 @@ public class DetailsProductActivity extends AppCompatActivity {
 
     private Call<List<Product>> call;
     private static final String TAG = "DetailsProduct";
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     public TextView txtname,txtprice,txtcat;
     public Button btnCadProd;
     public ImageView imageproduct;

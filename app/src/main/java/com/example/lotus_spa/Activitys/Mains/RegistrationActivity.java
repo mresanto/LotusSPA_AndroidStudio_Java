@@ -49,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private static final String TAG = "RegistrationActivity";
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 
 public interface ApiOrder {
 
-    String BASE_URL = "http://10.0.2.2:5000/api/v1";
+    String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1";
 
     @Headers("Content-Type: application/json")
     @GET("Order/")

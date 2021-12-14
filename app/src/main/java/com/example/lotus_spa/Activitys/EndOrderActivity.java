@@ -53,7 +53,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class EndOrderActivity extends AppCompatActivity {
 
     private static final String TAG = "EndOrder";
-    private static final String BASE_URL = "http://10.0.2.2:5000/api/v1/";
+    private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     private static final String BASE_URL_CEP = "https://viacep.com.br/ws/";
     public String cep,name, numberAddress, telephone, opPayOp;
     TextView NameTelephone, Logradouro, CidadeUf, TotalPrice;
@@ -120,14 +120,14 @@ public class EndOrderActivity extends AppCompatActivity {
                 Order order = new Order();
 
                 Calendar c = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
-                String date = new SimpleDateFormat("yyyy-dd-MM", Locale.getDefault()).format(new Date());
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
                 SharedPreferences s = getSharedPreferences("LOGINOUT", MODE_PRIVATE);
                 String cpf = s.getString("cpf","");
 
                 order.setOrdDate(date);
-                order.setTotalPrice(String.valueOf(total_price));
+                Log.e(TAG, "Preço Total: " + total_price);
+                order.setTotalPrice(total_price);
                 order.setStatusorder("U");
                 order.setCustCPF(cpf);
                 order.setPayDate(date);
@@ -202,6 +202,7 @@ public class EndOrderActivity extends AppCompatActivity {
 
                 }
                 for(int i = 0; i < lstChecked.size(); i++) {
+                    Log.e(TAG, "Reserve message:" + response.message());
                     Log.d(TAG, "OrderItem Pedido, size: " + lstChecked.size());
                     RequestOrderItens(lstChecked.get(i));
                 }
@@ -313,8 +314,22 @@ public class EndOrderActivity extends AppCompatActivity {
         call.enqueue(new Callback<Cep>() {
             @Override
             public void onResponse(Call<Cep> call, Response<Cep> response) {
-                Log.d(TAG, "onResponse: Server Response" + response.toString());
-                Log.d(TAG, "onResponse: received information" + response.body().toString());
+                try {
+                    Log.d(TAG, "onResponse: Server Response" + response.toString());
+                    Log.d(TAG, "onResponse: received information" + response.body().toString());
+                }catch (Exception e){
+                    Log.e(TAG, "Infelizmente algo deu errado na chamada do banco CEP: ");
+                    AlertDialog.Builder missingserver = new AlertDialog.Builder(EndOrderActivity.this);
+                    missingserver.setTitle("Server not found!");
+                    missingserver.setMessage("Servidor ViaCEP Offline, por favor tente novamente mais tarde");
+                    missingserver.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    missingserver.create().show();
+                }
 
                 Cep cepCust = new Cep();
 

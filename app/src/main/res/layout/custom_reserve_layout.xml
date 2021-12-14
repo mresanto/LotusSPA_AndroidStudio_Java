@@ -13,48 +13,23 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/patterText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
-            android:text="@string/preco"
-            android:textColor="@color/black"
-            style="@style/patterText"/>
+            android:text="@string/validity"
+            android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/txtResPrice"
+            android:id="@+id/txtResValidity"
+            style="@style/patterText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
-            android:text="@string/preco"
-            android:textColor="@color/black"
-            style="@style/patterText" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/option_payment"
-            android:textColor="@color/black"
-            style="@style/patterText" />
-
-        <TextView
-            android:id="@+id/txtResPayOption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:text="@string/option_payment"
-            android:textColor="@color/black"
-            style="@style/patterText" />
+            android:text="@string/validity"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout
@@ -66,20 +41,45 @@
             style="@style/patterText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
-            android:text="@string/validity"
+            android:text="@string/preco"
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/txtResValidity"
+            android:id="@+id/txtResPrice"
+            style="@style/patterText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
-            android:text="@string/validity"
-            android:textColor="@color/black"
-            style="@style/patterText" />
+            android:text="@string/preco"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/patterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/option_payment"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtResPayOption"
+            style="@style/patterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:text="@string/option_payment"
+            android:textColor="@color/black" />
     </LinearLayout>
 
     <LinearLayout

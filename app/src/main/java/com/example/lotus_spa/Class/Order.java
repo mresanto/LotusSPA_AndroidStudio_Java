@@ -13,9 +13,9 @@ public class Order {
     @Expose
     private String ordDate;
 
-    @SerializedName("OrdTotalPrice")
+    @SerializedName("TotalPrice")
     @Expose
-    private String totalPrice;
+    private double totalPrice;
 
     @SerializedName("statusOrder")
     @Expose
@@ -44,7 +44,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(int ordCode, String ordDate, String totalPrice, String statusorder, String custCPF, String payDate, String isDeleted, String statusPayment, String payOption) {
+    public Order(int ordCode, String ordDate, double totalPrice, String statusorder, String custCPF, String payDate, String isDeleted, String statusPayment, String payOption) {
         OrdCode = ordCode;
         this.ordDate = ordDate;
         this.totalPrice = totalPrice;
@@ -72,11 +72,11 @@ public class Order {
         this.ordDate = ordDate;
     }
 
-    public String getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(String totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 

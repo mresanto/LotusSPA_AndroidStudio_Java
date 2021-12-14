@@ -17,7 +17,7 @@ public class Reserve {
     @Expose
     private int resAmount;
 
-    @SerializedName("statusReserve")
+    @SerializedName("StatusReserve")
     @Expose
     private char statusReserve;
 
@@ -29,11 +29,11 @@ public class Reserve {
     @Expose
     private String custCPF;
 
-    @SerializedName("packCode")
+    @SerializedName("PackCode")
     @Expose
     private int packCode;
 
-    @SerializedName("payDate")
+    @SerializedName("PayDate")
     @Expose
     private String payDate;
 
