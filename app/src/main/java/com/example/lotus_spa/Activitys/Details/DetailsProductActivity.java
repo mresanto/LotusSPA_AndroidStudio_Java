@@ -1,6 +1,11 @@
 package com.example.lotus_spa.Activitys.Details;
 
+import android.app.PendingIntent;
+import android.appwidget.AppWidgetManager;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RemoteViews;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +22,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lotus_spa.Activitys.Mains.MainActivity;
 import com.example.lotus_spa.Class.OrderItem;
 import com.example.lotus_spa.Class.Product;
 import com.example.lotus_spa.Interface.ApiProduct;
@@ -46,7 +53,6 @@ public class DetailsProductActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details_product);
         int prodcode = 0;
 
-
         txtname = findViewById(R.id.txtprodname);
         txtprice = findViewById(R.id.txtprodprice);
         txtcat = findViewById(R.id.txtcatname);
@@ -72,7 +78,6 @@ public class DetailsProductActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {

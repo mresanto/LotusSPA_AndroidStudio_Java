@@ -11,6 +11,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiOrder {
 
@@ -19,6 +20,8 @@ public interface ApiOrder {
     @Headers("Content-Type: application/json")
     @GET("Order/")
     Call<List<Order>> getData();
+    @GET("Order/{email}")
+    Call<List<Order>> getByCode(@Path("email") String email);
 
     @POST("Order/")
     Call<Order> createOrder(@Body Order order);

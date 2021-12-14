@@ -53,8 +53,16 @@
     <string name="date_reserve">Validade da Reserva</string>
     <string name="make_reserve">Realizar Reserva</string>
     <string name="title_activity_places">Map</string>
-    <string name="find_place">Procure o estabelecimento<br/> mais perto</string>
+    <string name="find_place">Procure o estabelecimento<br /> mais perto</string>
     <string name="your_api_key">AIzaSyCIt8fjGEw241jz1wQWa2Fbzi1qsf8-rkk</string>
     <string name="products">Produtos</string>
     <string name="details_product">Detalhes do Produto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="preco">Preço</string>
+    <string name="validity">Validade</string>
+    <string name="option_payment">Opção Pagamento</string>
+    <string name="date_make_order">Data Pedido</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

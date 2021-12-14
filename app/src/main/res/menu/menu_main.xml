@@ -26,10 +26,4 @@
         android:id="@+id/our_products_menu"
         android:icon="@drawable/ic_baseline_add_shopping_cart_24"
         android:orderInCategory="4" />
-    <item
-        android:title="@string/meet_uss"
-        android:enabled="true"
-        android:id="@+id/meet_uss_menu"
-        android:icon="@drawable/ic_baseline_person_search_24"
-        android:orderInCategory="5" />
 </menu>

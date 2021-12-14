@@ -8,7 +8,7 @@
          location permissions for the "MyLocation" functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -22,6 +22,7 @@
         android:theme="@style/Theme.Lotus_SPA"
         android:usesCleartextTraffic="true">
 
+        <activity android:name=".Activitys.Mains.ReserveActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,34 +37,45 @@
 
         <activity
             android:name=".Activitys.PlacesActivity"
-            android:label="@string/title_activity_places"></activity>
-        <activity android:name=".Activitys.EndReserveActivity"
-            android:label="@string/make_reserve"/>
-        <activity android:name=".Activitys.Details.DetailsPackagesActivity"
-            android:label="@string/add_package"/>
-        <activity android:name=".Activitys.Mains.PackagesActivity"
-            android:label="@string/our_packages"/>
-        <activity android:name=".Activitys.EndOrderActivity"
-            android:label="@string/make_order"/>
-        <activity android:name=".Activitys.Details.DetailsProductActivity"
-            android:label="@string/details_product"/>
-        <activity android:name=".Activitys.Your.YourProductsActivity"
-            android:label="@string/your_products"/>
-        <activity android:name=".Activitys.UpdateAccountActivity"
-            android:label="@string/update"/>
-        <activity android:name=".Activitys.Your.YourAccountActivity"
-            android:label="@string/settings_account"/>
-        <activity android:name=".Activitys.Mains.PurchaseActivity"
-            android:label="@string/products"/>
-        <activity android:name=".Activitys.Mains.MainActivity"
+            android:label="@string/title_activity_places" />
+        <activity
+            android:name=".Activitys.EndReserveActivity"
+            android:label="@string/make_reserve" />
+        <activity
+            android:name=".Activitys.Details.DetailsPackagesActivity"
+            android:label="@string/add_package" />
+        <activity
+            android:name=".Activitys.Mains.PackagesActivity"
+            android:label="@string/our_packages" />
+        <activity
+            android:name=".Activitys.EndOrderActivity"
+            android:label="@string/make_order" />
+        <activity
+            android:name=".Activitys.Details.DetailsProductActivity"
+            android:label="@string/details_product" />
+        <activity
+            android:name=".Activitys.Your.YourProductsActivity"
+            android:label="@string/your_products" />
+        <activity
+            android:name=".Activitys.UpdateAccountActivity"
+            android:label="@string/update" />
+        <activity
+            android:name=".Activitys.Your.YourAccountActivity"
+            android:label="@string/settings_account" />
+        <activity
+            android:name=".Activitys.Mains.PurchaseActivity"
+            android:label="@string/products" />
+        <activity
+            android:name=".Activitys.Mains.MainActivity"
             android:label="@string/app_name" />
-        <activity android:name=".Activitys.Mains.RegistrationActivity"
+        <activity
+            android:name=".Activitys.Mains.RegistrationActivity"
             android:label="@string/register" />
         <activity
             android:name=".Activitys.Mains.LoginActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

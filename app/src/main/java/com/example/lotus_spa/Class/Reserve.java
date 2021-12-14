@@ -5,15 +5,15 @@ import com.google.gson.annotations.SerializedName;
 
 public class Reserve {
 
-    @SerializedName("resCode")
+    @SerializedName("ResCode")
     @Expose
     private int resCode;
 
-    @SerializedName("resValidity")
+    @SerializedName("ResValidity")
     @Expose
     private String resValidity;
 
-    @SerializedName("resAmount")
+    @SerializedName("ResAmount")
     @Expose
     private int resAmount;
 
@@ -21,11 +21,11 @@ public class Reserve {
     @Expose
     private char statusReserve;
 
-    @SerializedName("isDeleted")
+    @SerializedName("IsDeleted")
     @Expose
     private char isDeleted;
 
-    @SerializedName("custCPF")
+    @SerializedName("CustCPF")
     @Expose
     private String custCPF;
 
@@ -37,15 +37,15 @@ public class Reserve {
     @Expose
     private String payDate;
 
-    @SerializedName("payValue")
+    @SerializedName("PayValue")
     @Expose
     private String payValue;
 
-    @SerializedName("statusPayment")
+    @SerializedName("StatusPayment")
     @Expose
     private char statusPayment;
 
-    @SerializedName("payOption")
+    @SerializedName("PayOption")
     @Expose
     private String payOption;
 

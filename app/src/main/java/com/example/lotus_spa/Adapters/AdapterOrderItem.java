@@ -1,14 +1,11 @@
 package com.example.lotus_spa.Adapters;
 
-import android.content.ClipData;
 import android.content.Context;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -128,8 +125,8 @@ public class AdapterOrderItem extends RecyclerView.Adapter<AdapterOrderItem.MyVi
         public MyViewHolder(View itemView){
             super(itemView);
 
-            nameitem = (TextView) itemView.findViewById(R.id.txtprodnamedisplay);
-            priceitem = (TextView) itemView.findViewById(R.id.txtprodpricedisplay);
+            nameitem = (TextView) itemView.findViewById(R.id.txtResPrice);
+            priceitem = (TextView) itemView.findViewById(R.id.txtResValidity);
             imageitem = (ImageView) itemView.findViewById(R.id.imgProductOrderItemDisplay);
             checkitem = (CheckBox) itemView.findViewById(R.id.checkOrderItem);
         }

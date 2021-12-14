@@ -31,7 +31,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtprodnamedisplay"
+            android:id="@+id/txtResPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -39,7 +39,7 @@
             android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/txtprodpricedisplay"
+            android:id="@+id/txtResValidity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/black"

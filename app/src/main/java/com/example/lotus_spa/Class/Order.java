@@ -9,11 +9,11 @@ public class Order {
     @Expose
     private int OrdCode;
 
-    @SerializedName("ordDate")
+    @SerializedName("OrdDate")
     @Expose
     private String ordDate;
 
-    @SerializedName("totalPrice")
+    @SerializedName("OrdTotalPrice")
     @Expose
     private String totalPrice;
 
@@ -37,7 +37,7 @@ public class Order {
     @Expose
     private String statusPayment;
 
-    @SerializedName("payOption")
+    @SerializedName("PayOption")
     @Expose
     private String payOption;
 

@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(intent);
                             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                             break;
+
+                        case R.id.make_your_reservation_menu:
+                            intent = new Intent(MainActivity.this, ReserveActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                            break;
 //
                     //    case R.id.nav_pesquisar:
                     //        fragSelecionada= new PesquisaFragment();

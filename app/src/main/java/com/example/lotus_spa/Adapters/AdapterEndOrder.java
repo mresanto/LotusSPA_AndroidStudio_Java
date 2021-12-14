@@ -17,7 +17,6 @@ import com.example.lotus_spa.R;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterEndOrder extends RecyclerView.Adapter<AdapterEndOrder.MyViewHolder>  {
@@ -93,8 +92,8 @@ public class AdapterEndOrder extends RecyclerView.Adapter<AdapterEndOrder.MyView
         public MyViewHolder(View itemView){
             super(itemView);
 
-            nameitem = (TextView) itemView.findViewById(R.id.txtprodnamedisplay);
-            priceitem = (TextView) itemView.findViewById(R.id.txtprodpricedisplay);
+            nameitem = (TextView) itemView.findViewById(R.id.txtResPrice);
+            priceitem = (TextView) itemView.findViewById(R.id.txtResValidity);
             imageitem = (ImageView) itemView.findViewById(R.id.imgProductOrderItemDisplay);
         }
     }
