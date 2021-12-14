@@ -50,7 +50,15 @@ public class AdapterPackages extends RecyclerView.Adapter<AdapterPackages.MyView
         holder.namepackage.setText(packages.get(position).getPackname());
         holder.pricepackage.setText(packages.get(position).getPackprice());
         //Add image
-        holder.imagepackage.setImageResource(R.drawable.ic_launcher_foreground);
+        switch (packages.get(position).getPackcode())
+        {
+            case 1:
+                holder.imagepackage.setImageResource(R.drawable.beleza_spa);
+                break;
+            case 2:
+                holder.imagepackage.setImageResource(R.drawable.spa_relax);
+        }
+
 
         holder.itemView.setOnClickListener(v ->{
             mItemListener.onItemClick(packages.get(position));

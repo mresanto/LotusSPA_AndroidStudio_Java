@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lotus_spa.Activitys.EndReserveActivity;
@@ -35,6 +36,7 @@ public class DetailsPackagesActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     public TextView txtname,txtprice,txtdescription;
     public Button btnBuyPackage;
+    public ImageView imagepackage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,7 @@ public class DetailsPackagesActivity extends AppCompatActivity {
         txtprice = findViewById(R.id.txtpackprice);
         txtdescription = findViewById(R.id.txtpackdescription);
         btnBuyPackage = findViewById(R.id.btnBuyPackage);
+        imagepackage = findViewById(R.id.imgDetailsPackages);
 
 
         Bundle extras = getIntent().getExtras();
@@ -93,6 +96,16 @@ public class DetailsPackagesActivity extends AppCompatActivity {
                 txtname.setText(packages.get(0).getPackname());
                 txtprice.setText(packages.get(0).getPackprice());
                 txtdescription.setText(packages.get(0).getPackdescription());
+
+
+                switch (packages.get(0).getPackcode())
+                {
+                    case 1:
+                        imagepackage.setImageResource(R.drawable.beleza_spa);
+                        break;
+                    case 2:
+                        imagepackage.setImageResource(R.drawable.spa_relax);
+                }
 
                 btnBuyPackage.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +53,7 @@ public class EndReserveActivity extends AppCompatActivity {
     private static final String BASE_URL = "https://apilotusspa.herokuapp.com/api/v1/";
     private TextView DateReserve, NameReserve, PriceReserve;
     private Button btnReserve;
+    private ImageView imgReserve;
     Spinner spinner;
 
 
@@ -65,6 +67,7 @@ public class EndReserveActivity extends AppCompatActivity {
         NameReserve = findViewById(R.id.txtNameEndReserve);
         PriceReserve = findViewById(R.id.txtPriceEndReserve);
         btnReserve = findViewById(R.id.btnEndReserve);
+        imgReserve = findViewById(R.id.imgPackageReserve);
 
         spinner = findViewById(R.id.spiGreetingCardReserve);
 
@@ -244,6 +247,15 @@ public class EndReserveActivity extends AppCompatActivity {
                 DateReserve.setText(currentDate);
                 NameReserve.setText("Nome do Pacote: " + packages.get(0).getPackname());
                 PriceReserve.setText("Preço do Pacote: R$" +packages.get(0).getPackprice());
+
+                switch (packages.get(0).getPackcode())
+                {
+                    case 1:
+                        imgReserve.setImageResource(R.drawable.beleza_spa);
+                        break;
+                    case 2:
+                        imgReserve.setImageResource(R.drawable.spa_relax);
+                }
 
                 SharedPreferences login = getSharedPreferences("Reserve", MODE_PRIVATE);
                 SharedPreferences.Editor editor = login.edit();
