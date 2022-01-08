@@ -3,11 +3,16 @@
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
 
-> Projeto de Aplicativo Mobile, desenvolvido para utilização do cliente, focado em disponibilizar funções de Entrega e Reservar do site em uma versão Mobile
+Repositório responsável pelo projeto de TCC. Foi desenvolvido uma aplicação mobile para um SPA, no android studio native, utilizando a linguagem de programação java. O foco dessa aplicação é realizar compras de produto e efetuar reservas.
 
-### Ajustes e melhorias
+## 📸 Galeria
+
+<div align="left">
+<img src="https://lledogrupo.com/wp-content/uploads/2018/04/white-img.jpg" width="600px" />
+</div>
 
 
+### Ajustes e Melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas nas seguintes tarefas:
 
