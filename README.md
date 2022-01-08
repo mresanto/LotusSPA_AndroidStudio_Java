@@ -11,9 +11,7 @@ Além desse projeto ser native do android studio, também é feito o consumo da 
 
 ## 📸 Galeria
 
-<div align="left">
 https://user-images.githubusercontent.com/66914500/148649076-27d777d5-f71f-4782-ae20-7bc6d2ab0906.mp4
-</div>
 
 
 ### Ajustes e Melhorias
