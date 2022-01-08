@@ -2,13 +2,17 @@
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
+Desenvolvido aplicação mobile para um SPA, no android studio native, utilizando a linguagem de programação java. O foco dessa aplicação é realizar compras de produto e efetuar reservas.
 
-Repositório responsável pelo projeto de TCC. Foi desenvolvido uma aplicação mobile para um SPA, no android studio native, utilizando a linguagem de programação java. O foco dessa aplicação é realizar compras de produto e efetuar reservas.
+## ☕ Sobre esse Projeto
+
+Esse projeto foi desenvolvido para o TCC do curso Desenvolvimento de Sistema na escola **[ETEC Professor Basilides de Godoy](https://basilides.com.br)**.
+Além desse projeto ser native do android studio, também é feito o consumo da API **[Lotus_API](https://github.com/mresanto/Lotus-API)** desenvolvida para esse projeto.
 
 ## 📸 Galeria
 
 <div align="left">
-<img src="https://lledogrupo.com/wp-content/uploads/2018/04/white-img.jpg" width="600px" />
+https://user-images.githubusercontent.com/66914500/148649076-27d777d5-f71f-4782-ae20-7bc6d2ab0906.mp4
 </div>
 
 
@@ -24,20 +28,15 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
-* Você instalou a versão mais recente de `<Java>`
+* Você instalou a versão mais recente de <**[Java](https://www.oracle.com/java/technologies/downloads/)**>
 * Você tem uma máquina `<Windows & Android>`.
 
-## 🚀 Instalando <Lotus_SPA>
+## 🚀 Configurando o Projeto Localmente
 
-Para instalar o <Lotus_SPA>, siga estas etapas:
-
-
-Windows:
-```
-1- Instale os arquivos do repositório
-2- Instale o Android Studio
-3- Abre os arquivos do repositório e Click no Executável Lotus_SPA
-```
+1) Faça o clone da API **[Lotus_API](https://github.com/mresanto/Lotus-API)**, e siga seus passos para ser executada no Readme.md
+2) Após a API executando, Clone o repositório e instale o Android Studio
+3) Abra a pasta do projeto e modifique as strings de conexão da api no mesmo suporte do clone da API.
+4) Execute o aplicativo na opção de depuração disponível
 
 ## 🤝 Colaboradores
 
